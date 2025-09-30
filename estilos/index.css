@@ -1,0 +1,402 @@
+/* ========== Reset e Raiz ==========*/
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: font1, Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}
+@font-face {
+    font-family: "font1";
+    src: url("../fonts/Poppins-Medium.ttf") format("truetype");
+}
+
+:root {
+    --cor1: #FF771D;
+    --cor2: #090F4B;
+    --cor3: #429867;
+    --cor4: #2b5166;
+    --cor5: #482344;
+    
+    --font1: font1;
+}
+
+body {
+    background-color: #fdfdfd;
+}
+
+a#btnSubir {
+    background-color: var(--cor3);
+    position: fixed;
+    bottom: -100%;
+    right: 1.5%;
+    z-index: 400;
+    color: #fff;
+    font-size: 50px;
+    border-radius: 50%;
+    height: 55px;
+    width: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.7s;
+    padding: 0px 0 2px 0;
+}
+a#btnSubir.aparece {
+    bottom: 2%;
+    animation: crescer 0.5s infinite alternate ease-in-out;
+}
+@media (max-width: 700px) {
+    a#btnSubir.aparece {
+        font-size: 35px;
+        height: 40px;
+        width: 40px;
+    }
+}
+
+main section#top {
+    margin: 80px 0 0 0;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: var(--cor1);
+    padding: 1% 8% 10% 8%;
+    height: 100vh;
+    min-height: 300px;
+    max-height: 1000px;
+}
+main section#top div.texto {
+    width: 72%;
+}
+
+main section#top div.texto h1 {
+    color: #fff;
+    font-size: 60px;
+    font-family: var(--font1);
+    line-height: 65px;
+}
+
+main section#top div.texto h1 strong {
+    color: #000;
+}
+
+main section#top div.texto p {
+    color: #fff;
+    font-size: 25px;
+    margin: 10px 0;
+}
+
+main section#top div.texto div.botoes {
+    display: flex;
+    margin: 30px 0 10px 0;
+    gap: 10px;
+}
+
+main section#top div.texto div.botoes a {
+    padding: 8px 12px;
+    color: #fff;
+    border-radius: 15px;
+    font-size: 20px;
+    font-weight: bold;
+}
+main section#top div.texto div.botoes a.destaque {
+    background-color: #000;
+    color: #fff;
+}
+main section#top div.texto div.botoes a.bt1 {
+    background-color: #fff;
+    color: var(--cor1);
+}
+
+@media (max-width: 800px) {
+    main section#top div.texto {
+        width: 100%;
+    }
+    
+    main section#top div.texto h1 {
+        font-size: 38px;
+        line-height: 55px;
+    }
+    
+    main section#top div.texto p {
+        font-size: 17px;
+    }
+    
+    main section#top div.texto div.botoes {
+        margin: 10px 0 8px 0;
+    }
+    
+    main section#top div.texto div.botoes a {
+        font-size: 13px;
+    }
+}
+
+main section.destaque {
+    padding: 3% 4%;
+}
+
+main section.destaque div.top{
+    display: flex;
+    justify-content: space-between;
+}
+
+main section.destaque div.top div h1 {
+    font-size: 35px;
+}
+
+main section.destaque div.top div p {
+    font-size: 20px;
+}
+
+main section.destaque div.top a {
+    color: var(--cor1);
+    font-size: 22px;
+    font-weight: bold;
+}
+
+main section.destaque div.listaCard {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 50px 0 0 0;
+}
+
+main section.destaque div.listaCard div.card {
+    width: 95%;
+    max-width: 360px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+main section.destaque div.listaCard div.card div.imagem {
+    width: 100%;
+    height: 220px;
+}
+
+main section.destaque div.listaCard div.card div.imagem img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+main section.destaque div.listaCard div.card div.informacoes {
+    padding: 20px;
+}
+
+main section.destaque div.listaCard div.card div.informacoes h2{
+    font-size: 25px;
+}
+
+main section.destaque div.listaCard div.card div.informacoes p {
+    font-size: 17px;
+    margin: 15px 0;
+}
+main section.destaque div.listaCard div.card div.informacoes p a {
+    color: #333;
+}
+main section.destaque div.listaCard div.card div.informacoes p.preco {
+    display: flex;
+    justify-content: space-between;
+}
+
+main section.destaque div.listaCard div.card div.informacoes p.preco strong {
+    color: var(--cor1);
+    font-size: 22px;
+}
+
+main section.destaque div.listaCard div.card div.botoes {
+    padding: 0 0 30px 0;
+    text-align: center;
+}
+
+main section.destaque div.listaCard div.card div.botoes a {
+    background-color: var(--cor1);
+    color: #fff;
+    padding: 10px 40px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+}
+
+@media (max-width: 700px) {
+    main section.destaque div.top div h1 {
+        font-size: 30px;
+    }
+    
+    main section.destaque div.top div p {
+        font-size: 15px;
+    }
+    main section.destaque div.top a {
+        font-size: 18px;
+    }
+}
+
+main section#comoFunciona {
+    padding: 5% 4%;
+    text-align: center;
+}
+
+main section#comoFunciona h1 {
+    font-size: 35px;
+}
+
+main section#comoFunciona p {
+    font-size: 17px;
+    margin: 8px 0;
+}
+
+main section#comoFunciona div.listaCard {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0;
+}
+
+main section#comoFunciona div.listaCard div.card {
+    box-shadow: 0 0 5px gray;
+    border-radius: 10px;
+    padding: 10px;
+    width: 100%;
+}
+
+main section#comoFunciona div.listaCard div.card div.imagem i {
+    color: var(--cor1);
+    font-size: 50px;
+}
+
+main section#comoFunciona div.listaCard div.card h3 {
+    margin: 20px 0 10px 0;
+    font-size: 22px;
+}
+
+main section#comoFunciona div.listaCard div.card p {
+    margin: 20px 0 10px 0;
+    font-size: 18px;
+}
+
+@media (max-width: 700px) {
+    main section#comoFunciona div.listaCard {
+        flex-wrap: wrap;
+    }
+}
+
+main section#testemunhos {
+    padding: 5% 4%;
+}
+
+main section#testemunhos h1 {
+    font-size: 35px;
+}
+
+main section#testemunhos p {
+    font-size: 17px;
+    margin: 8px 0 30px 0;
+}
+
+main section#testemunhos div.listaCard {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0;
+}
+
+main section#testemunhos div.listaCard div.card {
+    box-shadow: 0 0 5px gray;
+    border-radius: 10px;
+    padding: 20px 15px;
+    width: 100%;
+}
+
+main section#testemunhos div.listaCard div.card div.person {
+    display: flex;
+    gap: 10px;
+}
+
+main section#testemunhos div.listaCard div.card div.person div.imagem {
+    height: 60px;
+    width: 60px;
+    background-color: #ddd;
+    border-radius: 50px;
+    overflow: hidden;
+}
+
+main section#testemunhos div.listaCard div.card div.person div.imagem img {
+    height: 100%;
+    width: 100%;
+}
+
+main section#testemunhos div.listaCard div.card div.person div.dados h2 {
+    font-size: 20px;
+}
+
+main section#testemunhos div.listaCard div.card div.person div.dados p {
+    font-size: 15px;
+}
+
+main section#testemunhos div.listaCard div.card div.texto p {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+main section#testemunhos div.listaCard div.card div.classificacao i{
+    color: gold;
+    background-color: #fff;
+    font-size: 20px;
+}
+
+@media (max-width: 700px) {
+    main section#testemunhos div.listaCard {
+        flex-wrap: wrap;
+    }
+}
+
+main section#convite {
+    background-color: var(--cor1);
+    color: #fff;
+    text-align: center;
+    padding: 90px 2%;
+}
+
+main section#convite h1 {
+    font-size: 35px;
+}
+
+main section#convite p {
+    font-size: 18px;
+    font-weight: 500;
+    margin: 10px 0 30px 0;
+}
+
+main section#convite a {
+    background-color: #fff;
+    color: var(--cor1);
+    font-weight: 500;
+    font-size: 20px;
+    padding: 10px 30px;
+    border-radius: 8px;
+}
+
+@media (max-width: 500px) {
+    main section#convite h1 {
+        font-size: 30px;
+    }
+    
+    main section#convite p {
+        font-size: 16px;
+    }
+    
+    main section#convite a {
+        font-size: 18px;
+        padding: 10px 25px;
+    }
+}

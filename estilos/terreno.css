@@ -1,0 +1,301 @@
+/* ========== Reset e Raiz ==========*/
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Roboto', Arial, sans-serif;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    text-decoration: none;
+    list-style: none;
+}
+@font-face {
+    font-family: "font1";
+    src: url("../fonts/built titling bd.ttf") format("truetype");
+}
+
+:root {
+    --cor1: #E02130;
+    --cor2: #FAB243;
+    --cor3: #429867;
+    --cor4: #2b5166;
+    --cor5: #482344;
+    
+    --font1: font1;
+}
+
+body {
+    background-color: #f8f5f3;
+}
+
+a#btnSubir {
+    background-color: var(--cor3);
+    position: fixed;
+    bottom: -100%;
+    right: 1.5%;
+    z-index: 400;
+    color: #fff;
+    font-size: 50px;
+    border-radius: 50%;
+    height: 55px;
+    width: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.7s;
+    padding: 0px 0 2px 0;
+}
+a#btnSubir.aparece {
+    bottom: 2%;
+    animation: crescer 0.5s infinite alternate ease-in-out;
+}
+@media (max-width: 700px) {
+    a#btnSubir.aparece {
+        font-size: 35px;
+        height: 40px;
+        width: 40px;
+    }
+}
+
+main {
+    margin: 150px 0 0 0;
+}
+
+main section#top {
+    display: flex;
+    justify-content: space-around;
+}
+
+main section#top div.fotos {
+    width: 45%;
+}
+
+main section#top div.fotos a {
+    width: 100%;
+    height: 100%;
+}
+
+main section#top div.fotos a img {
+    background-color: #333;
+    height: 100%;
+    width: 100%;
+}
+
+main section#top div.dados {
+    width: 50%;
+}
+
+main section#top div.dados h1 {
+    font-size: 22px;
+}
+
+main section#top div.dados span {
+    color: darkgray;
+    font-weight: 500;
+    font-size: 18px;
+    margin: 0 0 10px 0;
+}
+
+main section#top div.dados div.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+main section#top div.dados div.cards div {
+    width: 45%;
+    background-color: #fdfdfd;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+main section#top div.dados div.cards div h2 {
+    font-size: 20px;
+    margin: 8px 0;
+}
+
+main section#top div.dados div.descricao h2 {
+    margin: 20px 0 0 0;
+    font-size: 20px;
+}
+
+main section#top div.dados div.descricao p {
+    font-size: 15px;
+}
+
+main section#top div.dados div.btnContacto {
+    margin: 20px 0 15px 0;
+}
+
+main section#top div.dados div.btnContacto a{
+    background-color: var(--cor1);
+    color: #fff;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 8px;
+    font-weight: 500;
+}
+@media (max-width: 720px) {
+    main section#top {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+    
+    main section#top div.fotos {
+        width: 95%;
+    }
+    
+    main section#top div.dados {
+        width: 98%;
+    }
+    
+    main section#top div.dados div.cards {
+        margin: 10px 0;
+    }
+    
+    main section#top div.dados div.cards div {
+        width: 48%;
+    }
+}
+
+main section#terrenosEmDestaque {
+    padding: 3% 4%;
+}
+
+main section#terrenosEmDestaque div.top{
+    display: flex;
+    justify-content: space-between;
+}
+
+main section#terrenosEmDestaque div.top div h1 {
+    font-size: 35px;
+}
+
+main section#terrenosEmDestaque div.top div p {
+    font-size: 20px;
+}
+
+main section#terrenosEmDestaque div.top a {
+    color: var(--cor1);
+    font-size: 22px;
+    font-weight: bold;
+}
+
+main section#terrenosEmDestaque div.listaCard {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 50px 0 0 0;
+}
+
+main section#terrenosEmDestaque div.listaCard div.card {
+    width: 95%;
+    max-width: 360px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+main section#terrenosEmDestaque div.listaCard div.card div.imagem {
+    width: 100%;
+    height: 220px;
+    background-color: #ddd;
+}
+
+main section#terrenosEmDestaque div.listaCard div.card div.imagem img {
+    height: 100%;
+    width: 100%;
+}
+
+main section#terrenosEmDestaque div.listaCard div.card div.informacoes {
+    padding: 20px;
+}
+
+main section#terrenosEmDestaque div.listaCard div.card div.informacoes h2{
+    font-size: 25px;
+}
+
+main section#terrenosEmDestaque div.listaCard div.card div.informacoes p {
+    font-size: 17px;
+    margin: 15px 0;
+}
+
+main section#terrenosEmDestaque div.listaCard div.card div.informacoes p.preco {
+    display: flex;
+    justify-content: space-between;
+}
+
+main section#terrenosEmDestaque div.listaCard div.card div.informacoes p.preco strong {
+    color: var(--cor1);
+    font-size: 22px;
+}
+
+main section#terrenosEmDestaque div.listaCard div.card div.botoes {
+    padding: 0 0 30px 0;
+    text-align: center;
+}
+
+main section#terrenosEmDestaque div.listaCard div.card div.botoes a {
+    background-color: var(--cor1);
+    color: #fff;
+    padding: 10px 40px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+}
+
+@media (max-width: 700px) {
+    main section#terrenosEmDestaque div.top div h1 {
+        font-size: 30px;
+    }
+    
+    main section#terrenosEmDestaque div.top div p {
+        font-size: 15px;
+    }
+    main section#terrenosEmDestaque div.top a {
+        font-size: 18px;
+    }
+}
+
+main section#convite {
+    background-color: var(--cor1);
+    color: #fff;
+    text-align: center;
+    padding: 90px 2%;
+}
+
+main section#convite h1 {
+    font-size: 35px;
+}
+
+main section#convite p {
+    font-size: 18px;
+    font-weight: 500;
+    margin: 10px 0 30px 0;
+}
+
+main section#convite a {
+    background-color: #fff;
+    color: var(--cor1);
+    font-weight: 500;
+    font-size: 20px;
+    padding: 10px 30px;
+    border-radius: 8px;
+}
+
+@media (max-width: 500px) {
+    main section#convite h1 {
+        font-size: 30px;
+    }
+    
+    main section#convite p {
+        font-size: 16px;
+    }
+    
+    main section#convite a {
+        font-size: 18px;
+        padding: 10px 25px;
+    }
+}

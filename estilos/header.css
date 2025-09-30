@@ -1,0 +1,167 @@
+/* ========== Início do Header ==========*/
+header{
+    width: 100%;
+    height: 90px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    padding: 0px 60px;
+    transition: .5s;
+    background-color: #fff;
+    box-shadow: 0 0 20px #ccc;
+}
+
+header nav{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2% 3%;
+}
+header nav div#logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+header nav div#logo a img {
+    height: 55px;
+    width: 55px;
+}
+
+header nav ul{
+    display: flex;
+    list-style: none;
+}
+header nav ul li{
+    margin: 3px;
+}
+header nav ul a{
+    font-size: 18px;
+    text-decoration: none;
+    color: var(--dark);
+    font-weight: 700;
+    transition: .3s;
+    display: block;
+    transform: scale(0.9);
+    font-family: var(--font1);
+
+}
+header nav ul a.ativo, header nav ul a:hover{
+    color: var(--cor1);
+    border-bottom: 4px solid var(--cor1);
+    transform: scale(1);
+}
+
+header div.extra {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+header nav button#btnMenu{
+    height: 50px;
+    width: 40px;
+    border: none;
+    cursor: pointer;
+    padding: 2px;
+    background-color: transparent;
+    display: none;
+}
+header nav button#btnMenu span.linha{
+    height: 4px;
+    width: 100%;
+    background-color: var(--cor5);
+    display: block;
+    margin: 6px auto;
+    position: relative;
+    transform-origin: center;
+}
+header nav button.ativar span.linha:nth-child(2){
+    visibility: hidden;
+}
+header nav button.ativar span.linha:nth-child(1){
+    transform: translateY(9px) rotate(-42deg);
+    transition: 0.2s;
+}
+header nav button.ativar span.linha:nth-child(3){
+    transform: translateY(-11px) rotate(42deg);
+    transition: 0.2s;
+}
+header nav div.icones {
+    display: flex;
+    gap: 5px;
+}
+header nav div.icones a {
+    font-size: 17px;
+    color: #fff;
+    font-weight: 700;
+    border: 2px solid var(--cor1);
+    background-color: var(--cor1);
+    border-radius: 10px;
+    padding: 5px 12px;
+}
+header.rolou {
+    height: 80px;
+}
+@media (max-width: 800px) {
+    header{
+        height: 80px;
+        padding: 5px 20px;
+    }
+    header.rolou {
+        height: 70px;
+    }
+    header nav div#logo a img {
+        height: 45px;
+        width: 45px;
+    }
+    header nav {
+        padding-right: 0;
+    }
+    
+    header nav a#btnLogin {
+        right: 60px;
+    }
+    
+    header nav button#btnMenu{
+        display: block;
+    }
+    
+    header nav ul{
+        position: absolute;
+        top: 65px;
+        left: 1000px;
+        background-color: var(--cor1);
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        z-index: 100;
+        padding: 20px 0px 10px 0px;
+        transition: .8s;
+        box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.5);
+    }
+    header nav ul li{
+        margin: 5px;
+    }
+    header nav ul li a{
+        padding-left: 10px;
+        font-size: 18px;
+        border-left: 5px solid transparent;
+        color: #fff;
+    }
+    header nav ul a.ativo, header nav ul a:hover{
+        transform: scale(0.9);
+        border: none;
+        border-left: 5px solid #fff;
+        color: #fff;
+    }
+    header nav ul.mostrar{
+        left: 0px;
+    }
+}
+
+/* ========== Fim do Header ==========*/
