@@ -1,14 +1,228 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="pt">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title></title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="estilos/bootstrap-icons.css">
+  <link rel="stylesheet" href="estilos/header.css">
+  <link rel="stylesheet" href="estilos/footer.css">
+  <link rel="stylesheet" href="estilos/index.css">
+  <title>Onjo - Inicio</title>
 </head>
-
 <body>
-    <h1>Bem-Vindos ao Melp-Digital</h1>
-</body>
+  
+  <a href="#top" id="btnSubir"><i class="bi bi-arrow-up-circle"></i></a>
+<header>
+    <nav>
+        <div id="logo">
+            <a href="./index.html">
+                <img src="imagens/diversas/melpDigital-logo.jpg" alt="" />
+            </a>
+        </div>
+        
+        <ul id="lista">
+            <li><a href="#">Início</a></li>
+            <li><a href="#">Produtos</a></li>
+            <li><a href="#">Serviços</a></li>
+            <li><a href="#">Contactos</a></li>
+        </ul>
+        
+        <div class="extra">
+            <div class="icones">
+                <a href="#"><i class="bi-search"></i></a>
+                <a href="#"><i class="bi-person"></i></a>
+                <a href="#"><i class="bi-cart"></i></a>
+            </div>
+            
+            <button id="btnMenu">
+                <span class="linha"></span>
+                <span class="linha esconder"></span>
+                <span class="linha"></span>
+            </button>
+        </div>
+    </nav>
+</header>
 
+<main>
+    <section id="top">
+        <div class="texto">
+            <h1>Descubra os Melhores produtos e Serviços de <strong>Angola</strong></h1>
+            <p>Compre diretamente dos vendedores locais e apoie a economia angolana!</p>
+            <div class="botoes">
+                <a class="destaque" href="#">Explorar agora </a>
+                <a class="bt1" href="#">Tornar-se vendedor</a>
+            </div>
+        </div>
+    </section>          
+    <section id="terrenosEmDestaque" class="destaque">
+        <div class="top">
+            <div>
+                <h1>Produtos em destaque</h1>
+                <p>Explore os nossos produtos mais procurados em todo o país! </p>
+            </div>  
+            <a href="#">Ver todos <i class="bi-arrow-right "></i></a>
+        </div>
+        <div class="listaCard">
+            <div class="card">
+                <div class="imagem">
+                    <img src="imagens/terrenos/1.webp" alt="Imagem do produto" />
+                </div>
+                <div class="informacoes">
+                    <h2>Itel S18 </h2>
+                    <p class="preco"><span><i class="bi bi-layers"></i> </span><strong>8.000.000,00 KZ</strong></p>
+                </div>
+                <div class="botoes">
+                    <a href="paginas/terreno.html">Ver Detalhes <i class="bi-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="imagem">
+                    <img src="imagens/terrenos/2.webp" alt="Imagem do terreno" />
+                </div>
+                <div class="informacoes">
+                    <h2>Terreno residencial </h2>
+                    <p><i class="bi-geo-alt"></i> Ferrovia, Lubango, Huíla</p>
+                    <p class="preco"><span><i class="bi bi-layers"></i> 500 m²</span><strong>8.000.000,00 KZ</strong></p>
+                </div>
+                <div class="botoes">
+                    <a href="paginas/terreno.html" >Ver Detalhes <i class="bi-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="imagem">
+                    <img src="imagens/terrenos/3.webp" alt="Imagem do terreno" />
+                </div>
+                <div class="informacoes">
+                    <h2>Terreno residencial </h2>
+                    <p><i class="bi-geo-alt"></i> Ferrovia, Lubango, Huíla</p>
+                    <p class="preco"><span><i class="bi bi-layers"></i> 500 m²</span><strong>8.000.000,00 KZ</strong></p>
+                </div>
+                <div class="botoes">
+                    <a href="paginas/terreno.html">Ver Detalhes <i class="bi-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="comoFunciona">
+        <h1>Como funciona?</h1>
+        <p>Encontrar o terreno perfeito nunca foi tão fácil</p>
+        <div class="listaCard">
+            <div class="card">
+                <div class="imagem">
+                    <i class="bi-search"></i>
+                </div>
+                <h3>1. Encontre</h3>
+                <p>Pesquise terrenos por toda Angola usando nossos filtros avançados</p>
+            </div>
+            <div class="card">
+                <div class="imagem">
+                    <i class="bi-eye"></i>
+                </div>
+                <h3>2. Visualize</h3>
+                <p>Veja fotos, videos e detalhes completos de cada propriedade</p>
+            </div>
+            <div class="card">
+                <div class="imagem">
+                    <i class="bi-check-circle"></i>
+                </div>
+                <h3>3. Compre</h3>
+                <p>Comclua sua compra com segurança através da nossa plataforma</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="testemunhos">
+        <h1>O que dizem nossos clientes?</h1>
+        <p>Histórias reais de pessoas que realizaram seus sonhos com a <strong>ONJO</strong></p>
+        <div class="listaCard">
+            <div class="card">
+                <div class="person">
+                    <div class="imagem">
+                        <img src="imagens/perfil/miguel.jpg" alt="" />
+                    </div>
+                    <div class="dados">
+                        <h2>Miguel Ucuepandi</h2>
+                        <p>Comprador, Lubango</p>
+                    </div>
+                </div>
+                <div class="texto">
+                    <p>"Encontrei o terreno perfeito para construir a minha casa através da <strong>ONJO</strong>. O processo foi transparente e seguro, com todo o suporte necessário da equipe."</p>
+                </div>
+                <div class="classificacao">
+                    <i class="bi-star-fill "></i>
+                    <i class="bi-star-fill "></i>
+                    <i class="bi-star-fill "></i>
+                    <i class="bi-star-fill "></i>
+                    <i class="bi-star-fill "></i>
+                </div>
+            </div>
+            <div class="card">
+                <div class="person">
+                    <div class="imagem">
+                        <img src="imagens/perfil/silvio.jpg" alt="" />
+                    </div>
+                    <div class="dados">
+                        <h2>Silvio Gabriel</h2>
+                        <p>Vendedor, Lubango</p>
+                    </div>
+                </div>
+                <div class="texto">
+                    <p>"Vendi meu terreno em menos de uma semana após cadastrar na plataforma. A equipe da <strong>ONJO</strong> foi incrivel, ajudando-me em todo o processo legal e de documentação."</p>
+                </div>
+                <div class="classificacao">
+                    <i class="bi-star-fill "></i>
+                    <i class="bi-star-fill "></i>
+                    <i class="bi-star-fill "></i>
+                    <i class="bi-star-fill "></i>
+                    <i class="bi-star-fill "></i>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="convite">
+        <h1>Pronto para encontrar ou vender seu terreno?</h1>
+        <p>Junte-se a maior plataforma de terrenos em Angola</p>
+        <a href="#">Comece agora <i class="bi-arrow-right "></i></a>
+    </section>
+</main>
+
+ <!-- Início do footer  -->
+    <footer >
+        <section id="self">
+            <h2>ONJO</h2>
+            <div>
+                Revolucionando o mercado imobiliário angolano através da tecnologia.
+            </div>
+        </section>
+        <section id="linksU">
+            <h2>Links úteis</h2>
+            <a href="#">Inicio</a>
+            <a href="#">Terrenos</a>
+            <a href="#">Sobre Nós</a>
+            <a href="#">Contactos</a>
+        </section>
+        <section id="legal">
+            <h2>Legal</h2>
+            <a href="#">Política de cookies</a>
+            <a href="#">Política de privacidade </a>
+            <a href="#">Termos e condições</a>
+        </section>
+        <section id="contacto">
+            <h2>Contactos</h2>
+            <div class="contacto">
+               <a href="tel:+244 921 270 929"><i class="bi bi-telephone-fill"></i> +244 921 270 829</a>
+               <a href="mailto:plusone.atendimento@gmail.com?subject=AgroLink"><i class="bi bi-envelope-fill"></i> plusone.atendimento@gmail.com</a>
+               <a href="#"><i class="bi-geo-alt-fill"></i> Lubango, Huíla, Angola</a>
+            </div>
+        </section>
+        <section id="copy">
+            <a href="#">Copyright &copy; 2025 PlusOne. Todos os direitos reservados!</a>
+        </section>
+    </footer>
+    <!-- fim do footer   -->
+
+  <script src="scripts/header.js"></script>
+</body>
 </html>
