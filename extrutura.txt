@@ -1,88 +1,67 @@
 /Melp-Digital
-    |-- /estilos
-    |-- /scripts
-    |-- /fontes
-    |-- /imagens
-    |-- /videos
-    
-    |-- /modelos
-        |-- usuario.php
-        |-- produto.php
-        |-- servico.php
-        |-- musica.php
-        |-- design.php
-        |-- categoria.php
-    
-    |-- /usuario
-        |-- entrar.php
-            |-- Formulário de login (Google e Facebook)
-            |-- Recuperar senha (e-mail)
-        |-- Cadastro (com opção Google/Facebook)
-        |-- sair.php
-        |-- perfil.php
-            |-- Para comprador: dados básicos, favoritos, histórico de compras
-            |-- Para vendedor: dados da loja/portfólio, lista de anúncios, botão para adicionar novos
-    
-    |-- /produto
-        |-- index.php => Lista de todos os produtos (roupas, tênis, perfumes, acessórios) com filtros
-        |-- detalhes.php
-        |-- adicionar.php
-            |-- Nome
-            |-- Categoria
-            |-- Preço
-            |-- Fotos (principal + adicionais)
-            |-- Descrição
-            |-- Estoque/Disponibilidade
-    
-    |-- /servico
-        |-- index.php => Lista de serviços oferecidos
-        |-- detalhes.php
-        |-- adicionar.php
-            |-- Nome do serviço
-            |-- Categoria
-            |-- Preço (fixo ou por hora)
-            |-- Localização (opcional)
-            |-- Contatos
-            |-- Fotos/Portfólio
-            |-- Descrição
-            
-    |-- /musica
-        |-- index.php => Lista de músicas, beats, álbuns
-        |-- detalhes.php
-        |-- adicionar.php
-            |-- Título
-            |-- Categoria (beat, álbum, faixa, instrumental)
-            |-- Upload de áudio/links externos
-            |-- Foto capa
-            |-- Descrição
-        
-    |-- /design
-        |-- index.php => Lista de designs, logos, artes digitais
-        |-- detalhes.php
-        |-- adicionar.php
-            |-- Nome do projeto
-            |-- Categoria (logo, ilustração, arte 3D, etc.)
-            |-- Upload de imagens/arquivos
-            |-- Preço
-            |-- Descrição
-        
     |-- /Admin
         |-- index.php => Dashboard da plataforma
         |-- usuarios.php
         |-- produtos.php
         |-- servicos.php
         |-- musicas.php
-        |-- designs.php
-        |-- categorias.php
-        |-- denuncias.php => Gerir denúncias/relatórios
+        
+    |-- /assets => Recursos estáticos e visuais 
+        |-- /audios => Arquivos de audio
+        |-- /estilos
+            |-- /contacto
+            |-- /conteudo
+            |-- /musica
+            |-- /produto
+            |-- /servico
+            |-- /usuario
+            
+            |-- animacoes.css
+            |-- bootstrap-icons.css
+            |-- geral.css
+            |-- index.css
+            
+        |-- /fonts
+        |-- /imagens
+        |-- /videos
         
     |-- /contacto
         |-- index.php => Página “Sobre nós” + Formulário de contacto
+        
+    |-- /conteudo
+    |-- /modelos
+        |-- usuario.php
+        |-- produto.php
+        |-- servico.php
+        |-- musica.php
+        
+    |-- /musica
+        |-- index.php => Lista de músicas, beats, álbuns
+        |-- detalhes.php
+        |-- adicionar.php
+        
+    |-- /parceria
+    |-- /produto
+        |-- index.php => Lista de todos os produtos (roupas, tênis, perfumes, acessórios) com filtros
+        |-- detalhes.php
+        |-- adicionar.php
+        
+    |-- /scripts => Lógica e interação 
+        |-- geral.js
+        
+    |-- /servico
+        |-- index.php => Lista de serviços oferecidos
+        |-- detalhes.php
+        |-- adicionar.php
+        
+    |-- /usuario
+        |-- entrar.php
+            |-- Formulário de login e cadastro (Google e Facebook)
+            |-- Recuperar senha (e-mail)
+            
+        |-- perfil.php
+        |-- sair.php
     
     |-- index.php => Página inicial
-        |-- Destaques de produtos
-        |-- Serviços em alta
-        |-- Músicas/Designs populares
-        |-- Depoimentos
-        |-- Categorias principais
+        |-- Destaques de produtos, servicos, musicas, parcerias e conteúdos
 
