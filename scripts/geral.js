@@ -4,6 +4,7 @@ const lista = document.querySelector('header ul#lista');
 let sections = document.querySelectorAll('main > section');
 let navLinks = document.querySelectorAll('body a[href^="#"]');
 const menuItens = document.querySelectorAll('body header a[href^="#"]');
+let body = document.querySelector("body")
 
 btn.addEventListener('click', function() {
     btn.classList.toggle('ativar');

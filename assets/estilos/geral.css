@@ -27,6 +27,7 @@ a {
 
 body {
     background-color: #fdfdfd;
+    height: 100vh;
 }
 
 a#btnSubir {
@@ -68,7 +69,7 @@ header{
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 100;
+    z-index: 10;
     padding: 0px 60px;
     transition: .5s;
     background-color: #fff;
@@ -586,6 +587,137 @@ section#filtro .listaCard {
     justify-content: center;
 }
 
+/*
+    Pop-up 
+*/
+div.caixaPop {
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+    min-height: 100vh;
+    position: absolute;
+    display: none;
+    overflow-y: auto;
+    z-index: 11;
+}
+div.caixaPop section#popAddProduto {
+    background-color: #fff;
+    width: 95%;
+    max-width: 850px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+div.caixaPop section#popAddProduto div.top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    background-color: var(--cor1);
+    color: #fff;
+}
+
+div.caixaPop section#popAddProduto div.top h2 {
+    font-size: 17px;
+}
+
+div.caixaPop section#popAddProduto div.top button {
+    border: none;
+    background-color: transparent;
+    font-size: 40px;
+    color: #fff;
+}
+
+
+div.caixaPop section#popAddProduto table {
+    padding: 10px;
+}
+
+div.caixaPop section#popAddProduto table td {
+    font-size: 18px;
+    padding: 5px 10px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    width: 17%;
+}
+
+div.caixaPop section#popAddProduto table td.botoesRemover {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div.caixaPop section#popAddProduto table td.botoesRemover a {
+    color: var(--cor1);
+    font-size: 30px;
+}
+
+div.caixaPop section#popAddProduto table td.imagem {
+    height: 50px;
+    width: 50px;
+}
+
+div.caixaPop section#popAddProduto table td.imagem img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+div.caixaPop section#popAddProduto div.botoes {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 0 10px 15px 10px;
+}
+
+div.caixaPop section#popAddProduto div.botoes a {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+div.caixaPop section#popAddProduto div.botoes a.btnFinalizar {
+    background-color: var(--cor1);
+}
+
+@media (max-width: 600px) {
+    div.caixaPop section#popAddProduto table td {
+        font-size: 15px;
+    }
+    
+    div.caixaPop section#popAddProduto table td.botoesRemover a {
+        font-size: 20px;
+    }
+    
+    div.caixaPop section#popAddProduto table td.imagem {
+        display: none;
+    }
+    
+    div.caixaPop section#popAddProduto div.botoes a {
+        padding: 3px 7px;
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 450px) {
+    div.caixaPop section#popAddProduto table td {
+        font-size: 14px;
+        padding: 0;
+    }
+    
+    div.caixaPop section#popAddProduto table td.botoesRemover a {
+        font-size: 17px;
+        padding: 0;
+    }
+    
+    
+    div.caixaPop section#popAddProduto div.botoes a {
+        font-size: 14px;
+    }
+}
 
 /* 
 	========== footer ==========

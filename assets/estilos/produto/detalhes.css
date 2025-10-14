@@ -54,16 +54,37 @@ main section#top {
     color: var(--cor1);
 }
 
+section#top div.informacoes a.btnAdd {
+    background-color: var(--cor1);
+    color: #fff;
+    padding: 8px 30px;
+    border-radius: 8px;
+}
+
  section#top div.descricao {
     width: 90%;
 } 
 
-@media (max-width: 500px) {
-     section#top div.informacoes h1 {
-        font-size: 28px;
+@media (max-width: 700px) {
+    main section#top {
+        justify-content: flex-start;
     }
-     section#top div.imagem {
-        height: 350px;
+}
+@media (max-width: 500px) {
+    main section#top div.informacoes {
+        margin: 10px 0 30px 0;
+    }
+    main section#top div.informacoes h1 {
+        font-size: 22px;
+    }
+    main section#top div.informacoes p {
+        font-size: 16px;
+    }
+    main section#top div.imagem {
+        height: 300px;
         width: 100%;
+    }
+    main section#top div.descricao p {
+        font-size: 15px;
     }
 }
