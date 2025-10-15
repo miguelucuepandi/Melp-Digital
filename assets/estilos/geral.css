@@ -594,10 +594,11 @@ div.caixaPop {
     background-color: rgba(0, 0, 0, 0.7);
     width: 100%;
     justify-content: center;
-    align-items: center;
-    padding: 20px 0;
-    min-height: 100vh;
-    position: absolute;
+    align-items: flex-start;
+    padding: 5% 0 20% 0;
+    height: 100vh;
+    position: fixed;
+    top: 0;
     display: none;
     overflow-y: auto;
     z-index: 11;
@@ -608,6 +609,7 @@ div.caixaPop section#popAddProduto {
     max-width: 850px;
     border-radius: 10px;
     overflow: hidden;
+    animation: crescer 0.2s ease-in-out forwards;
 }
 
 div.caixaPop section#popAddProduto div.top {
