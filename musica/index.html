@@ -6,12 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="../assets/estilos/bootstrap-icons.css">
   <link rel="stylesheet" href="../assets/estilos/geral.css">
+  <link rel="stylesheet" href="../assets/estilos/animacoes.css">
   <link rel="stylesheet" href="../assets/estilos/musica/index.css">
   <title>Melp Digital</title>
 </head>
 <body>
   <a href="#top" id="btnSubir"><i class="bi bi-arrow-up-circle"></i></a>
-<header>
+  <div class="siteTodo">
+    <header>
     <nav>
         <div id="logo">
             <a href="../index.html">
@@ -23,16 +25,16 @@
             <li><a href="../index.html">Início</a></li>
             <li><a href="../produto/index.html">Produtos</a></li>
             <li><a href="../servico/index.html">Serviços</a></li>
-            <li><a href="../musica/index.html">Músicas</a></li>
+            <li><a class="ativo" href="./index.html">Músicas</a></li>
             <li><a href="../parceria/index.html">Parceria</a></li>
             <li><a href="../conteudo/index.html">Conteúdo</a></li>
         </ul>
         
         <div class="extra">
             <div class="icones">
-                <a href="#"><i class="bi-search"></i></a>
+                <a href="../pesquisa/resultado.html"><i class="bi-search"></i></a>
                 <a href="../usuario/perfil.html"><i class="bi-person"></i></a>
-                <a href="#"><i class="bi-cart"></i></a>
+                <a href="../produto/carrinho.html"><i class="bi-cart"></i></a>
             </div>
             
             <button id="btnMenu">
@@ -61,7 +63,7 @@
         <div class="listaCard">
             <div class="card card2">
                 <div class="imagem">
-                    <a href="#">
+                    <a href="detalhes.html">
                         <img src="../assets/imagens/musicas/foto01.jpg" alt="Imagem" />
                     </a>
                 </div>
@@ -72,7 +74,7 @@
             </div>
             <div class="card card2">
                 <div class="imagem">
-                    <a href="#">
+                    <a href="detalhes.html">
                         <img src="../assets/imagens/musicas/foto01.jpg" alt="Imagem" />
                     </a>
                 </div>
@@ -83,7 +85,7 @@
             </div>
             <div class="card card2">
                 <div class="imagem">
-                    <a href="#">
+                    <a href="detalhes.html">
                         <img src="../assets/imagens/musicas/foto01.jpg" alt="Imagem" />
                     </a>
                 </div>
@@ -94,7 +96,7 @@
             </div>
             <div class="card card2">
                 <div class="imagem">
-                    <a href="#">
+                    <a href="detalhes.html">
                         <img src="../assets/imagens/musicas/foto01.jpg" alt="Imagem" />
                     </a>
                 </div>
@@ -105,7 +107,7 @@
             </div>
             <div class="card card2">
                 <div class="imagem">
-                    <a href="#">
+                    <a href="detalhes.html">
                         <img src="../assets/imagens/musicas/foto01.jpg" alt="Imagem" />
                     </a>
                 </div>
@@ -116,7 +118,7 @@
             </div>
             <div class="card card2">
                 <div class="imagem">
-                    <a href="#">
+                    <a href="detalhes.html">
                         <img src="../assets/imagens/musicas/foto01.jpg" alt="Imagem" />
                     </a>
                 </div>
@@ -127,7 +129,7 @@
             </div>
             <div class="card card2">
                 <div class="imagem">
-                    <a href="#">
+                    <a href="detalhes.html">
                         <img src="../assets/imagens/musicas/foto01.jpg" alt="Imagem" />
                     </a>
                 </div>
@@ -138,7 +140,7 @@
             </div>
             <div class="card card2">
                 <div class="imagem">
-                    <a href="#">
+                    <a href="detalhes.html">
                         <img src="../assets/imagens/musicas/foto01.jpg" alt="Imagem" />
                     </a>
                 </div>
@@ -149,7 +151,7 @@
             </div>
             <div class="card card2">
                 <div class="imagem">
-                    <a href="#">
+                    <a href="detalhes.html">
                         <img src="../assets/imagens/musicas/foto01.jpg" alt="Imagem" />
                     </a>
                 </div>
@@ -160,7 +162,7 @@
             </div>
             <div class="card card2">
                 <div class="imagem">
-                    <a href="#">
+                    <a href="detalhes.html">
                         <img src="../assets/imagens/musicas/foto01.jpg" alt="Imagem" />
                     </a>
                 </div>
@@ -171,9 +173,126 @@
             </div>
         </div>
     </section>
+    <section id="filtro">
+		  <h2>Tipos de Produtos da Nossa Plataforma</h2>
+		  <p>
+		      Aqui você encontrará listada as variedades de produtos da nossa plataforma.
+	    </p>
+		  <aside class="botoes">
+		    <button valor="todos" class="ativo">Todos</button>
+			  <button valor="Hip Hop / Rap" >Hip Hop / Rap</button>
+			  <button valor="R&B / Soul" >R&B / Soul</button>
+			  <button valor="Kizomba" >Kizomba</button>
+			  <button valor="Kuduro" >Kuduro</button>
+			  <button valor="House / EDM" >House / EDM</button>
+			  <button valor="Gospel" >Gospel</button>
+			  <button valor="Jazz / Blues" >Jazz / Blues</button>
+			  <button valor="Pop" >Pop</button>
+			  <button valor="Instrumental / Beat" >Instrumental / Beat</button>
+		  </aside>
+		  <aside class="itens listaCard">
+        <div class="item card card2" valor="Hip Hop / Rap">
+          <div class="imagem">
+            <a href="detalhes.html">
+              <img src="../assets/imagens/musicas/foto01.jpg" alt="Imagem" />
+            </a>
+          </div>
+          <div class="informacoes">
+          <h2> O começo</h2>
+          <p><a href="#">Cantor 1</a></p>
+        </div>
+      </div>
+        <div class="item card card2" valor="R&B / Soul">
+          <div class="imagem">
+            <a href="detalhes.html">
+              <img src="../assets/imagens/musicas/foto01.jpg" alt="Imagem" />
+            </a>
+          </div>
+          <div class="informacoes">
+            <h2> O começo</h2>
+            <p><a href="#">Cantor 1</a></p>
+          </div>
+        </div>
+        <div class="item card card2" valor="R&B / Soul">
+          <div class="imagem">
+            <a href="detalhes.html">
+              <img src="../assets/imagens/musicas/foto01.jpg" alt="Imagem" />
+            </a>
+          </div>
+          <div class="informacoes">
+            <h2> O começo</h2>
+            <p><a href="#">Cantor 1</a></p>
+          </div>
+        </div>
+        <div class="item card card2" valor="R&B / Soul">
+          <div class="imagem">
+            <a href="detalhes.html">
+              <img src="../assets/imagens/musicas/foto01.jpg" alt="Imagem" />
+            </a>
+          </div>
+          <div class="informacoes">
+            <h2> O começo</h2>
+            <p><a href="#">Cantor 1</a></p>
+          </div>
+        </div>
+        <div class="item card card2" valor="Pop">
+          <div class="imagem">
+            <a href="detalhes.html">
+              <img src="../assets/imagens/musicas/foto01.jpg" alt="Imagem" />
+            </a>
+          </div>
+          <div class="informacoes">
+            <h2> O começo</h2>
+            <p><a href="#">Cantor 1</a></p>
+          </div>
+        </div>
+        <div class="item card card2" valor="Kizomba">
+          <div class="imagem">
+            <a href="detalhes.html">
+              <img src="../assets/imagens/musicas/foto01.jpg" alt="Imagem" />
+            </a>
+          </div>
+          <div class="informacoes">
+            <h2> O começo</h2>
+            <p><a href="#">Cantor 1</a></p>
+          </div>
+        </div>
+        <div class="item card card2" valor="Kizomba">
+          <div class="imagem">
+            <a href="detalhes.html">
+              <img src="../assets/imagens/musicas/foto01.jpg" alt="Imagem" />
+            </a>
+          </div>
+          <div class="informacoes">
+            <h2> O começo</h2>
+            <p><a href="#">Cantor 1</a></p>
+          </div>
+        </div>
+        <div class="item card card2" valor="Instrumental / Beat">
+          <div class="imagem">
+            <a href="detalhes.html">
+              <img src="../assets/imagens/musicas/foto01.jpg" alt="Imagem" />
+            </a>
+          </div>
+          <div class="informacoes">
+            <h2> O começo</h2>
+            <p><a href="#">Cantor 1</a></p>
+          </div>
+        </div>
+        <div class="item card card2" valor="Instrumental / Beat">
+          <div class="imagem">
+            <a href="detalhes.html">
+              <img src="../assets/imagens/musicas/foto01.jpg" alt="Imagem" />
+            </a>
+          </div>
+          <div class="informacoes">
+            <h2> O começo</h2>
+            <p><a href="#">Cantor 1</a></p>
+          </div>
+        </div>
+		</aside>
+	</section>
 </main>
-
- <!-- Início do footer  -->
     <footer >
         <section id="self">
             <h2>Melp Digital</h2>
@@ -207,8 +326,9 @@
             <a href="#">Copyright &copy; 2025 Melp-Digital. Todos os direitos reservados!</a>
         </section>
     </footer>
-    <!-- fim do footer   -->
-
+  </div>
+  
   <script src="../scripts/geral.js"></script>
+  <script src="../scripts/filtro.js"></script>
 </body>
 </html>

@@ -354,6 +354,7 @@ main section.destaque div.top a {
     border-radius: 8px;
     background-color: #fff;
     overflow: hidden;
+    animation: crescer 0.4s ease-out forwards;
 }
 
 .listaCard div.card div.imagem {
