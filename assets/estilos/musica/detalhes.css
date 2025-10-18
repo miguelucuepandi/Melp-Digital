@@ -54,7 +54,7 @@ main section#top {
     color: var(--cor1);
 }
 
-section#top div.informacoes a.btnReproduzir {
+section#top div.informacoes a.btnTransferir {
     background-color: var(--cor1);
     color: #fff;
     padding: 8px 30px;
