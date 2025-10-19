@@ -1,0 +1,67 @@
+/Melp-Digital
+    |-- /Admin
+        |-- index.php => Dashboard da plataforma
+        |-- usuarios.php
+        |-- produtos.php
+        |-- servicos.php
+        |-- musicas.php
+        
+    |-- /assets => Recursos estáticos e visuais 
+        |-- /audios => Arquivos de audio
+        |-- /estilos
+            |-- /contacto
+            |-- /conteudo
+            |-- /musica
+            |-- /produto
+            |-- /servico
+            |-- /usuario
+            
+            |-- animacoes.css
+            |-- bootstrap-icons.css
+            |-- geral.css
+            |-- index.css
+            
+        |-- /fonts
+        |-- /imagens
+        |-- /videos
+        
+    |-- /contacto
+        |-- index.php => Página “Sobre nós” + Formulário de contacto
+        
+    |-- /conteudo
+    |-- /modelos
+        |-- usuario.php
+        |-- produto.php
+        |-- servico.php
+        |-- musica.php
+        
+    |-- /musica
+        |-- index.php => Lista de músicas, beats, álbuns
+        |-- detalhes.php
+        |-- adicionar.php
+        
+    |-- /parceria
+    |-- /produto
+        |-- index.php => Lista de todos os produtos (roupas, tênis, perfumes, acessórios) com filtros
+        |-- detalhes.php
+        |-- adicionar.php
+        
+    |-- /scripts => Lógica e interação 
+        |-- geral.js
+        
+    |-- /servico
+        |-- index.php => Lista de serviços oferecidos
+        |-- detalhes.php
+        |-- adicionar.php
+        
+    |-- /usuario
+        |-- entrar.php
+            |-- Formulário de login e cadastro (Google e Facebook)
+            |-- Recuperar senha (e-mail)
+            
+        |-- perfil.php
+        |-- sair.php
+    
+    |-- index.php => Página inicial
+        |-- Destaques de produtos, servicos, musicas, parcerias e conteúdos
+

@@ -1,0 +1,45 @@
+/*
+    Estilos específicos dos detalhes dos produtos
+*/
+
+main section#info {
+    border-radius: 20px;
+    box-shadow: 0 0 5px #ccc;
+    width: 95%;
+    max-width: 800px;
+    margin: 90px auto 0 auto;
+    padding: 15px;
+}
+
+main section#info div.imagem a {
+    height: 130px;
+    width: 130px;
+    border-radius: 50%;
+    border: 2px solid var(--cor1);
+    display: block;
+    margin: 20px auto;
+    overflow: hidden;
+}
+main section#info div.imagem a img {
+    height: 100%;
+    width: 100%;
+}
+
+main section#info div.informacoes h1 {
+    font-size: 25px;
+}
+main section#info div.informacoes h2{
+    font-size: 20px;
+    margin: 5px 0 20px 0;
+}
+main section#info div.informacoes p {
+    font-size: 18px;
+}
+
+main section#info div.informacoes p a {
+    color: var(--cor1);
+}
+
+main section#info div.descricao {
+    margin: 20px 0;
+}
