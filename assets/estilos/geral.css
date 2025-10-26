@@ -389,7 +389,8 @@ main section.destaque div.top a {
 }
 .listaCard div.card div.informacoes p.preco {
     display: flex;
-    justify-content: space-between;
+    color: var(--cor1);
+    gap: 4px;
 }
 
 .listaCard div.card div.informacoes p.preco strong {
@@ -405,7 +406,7 @@ main section.destaque div.top a {
 .listaCard div.card div.botoes a {
     background-color: var(--cor1);
     color: #fff;
-    padding: 10px 40px;
+    padding: 10px 15px;
     font-size: 14px;
     font-weight: bold;
     border-radius: 8px;
@@ -447,7 +448,7 @@ main section.destaque div.top a {
 }
 .listaCard div.card2 div.informacoes p.preco {
     display: flex;
-    justify-content: space-between;
+    color: var(--cor1);
 }
 
 .listaCard div.card2 div.informacoes p.preco strong {
@@ -461,23 +462,21 @@ main section.destaque div.top a {
 }
 
 .listaCard div.card3 div.imagem {
-    width: auto;
-    height: auto;
-    border-radius: 8px;
-    overflow: hidden;
+    width: 95%;
+    height: 170px;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 10px 0;
+    margin: 0 auto;
 }
 
 .listaCard div.card3 div.imagem a {
     background-color: #345;
-    border-radius: 50%;
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
     overflow: hidden;
-    height: 130px;
-    width: 130px;
-    display: block;
 }
 
 .listaCard div.card3 div.imagem img {
@@ -488,12 +487,13 @@ main section.destaque div.top a {
 
 .listaCard div.card3 div.informacoes {
     padding: 1% 5%;
-    text-align: center;
     margin: 0 0 20px 0;
 }
 
-.listaCard div.card3 div.informacoes h2{
+.listaCard div.card3 div.informacoes h2,
+.listaCard div.card3 div.informacoes h2 a{
     font-size: 18px;
+    color: #000;
 }
 .listaCard div.card3 div.informacoes h3 {
     color: var(--cor1);
@@ -633,7 +633,7 @@ div.caixaPop {
     width: 100%;
     justify-content: center;
     align-items: flex-start;
-    padding: 5% 0 20% 0;
+    padding: 2%;
     height: 100vh;
     position: fixed;
     top: 0;
@@ -641,16 +641,18 @@ div.caixaPop {
     overflow-y: auto;
     z-index: 11;
 }
-div.caixaPop section#popAddProduto {
+div.caixaPop section.popup {
     background-color: #fff;
     width: 95%;
     max-width: 850px;
     border-radius: 10px;
     overflow: hidden;
     animation: crescer 0.2s ease-in-out forwards;
+    display: none;
+    flex-direction: column;
 }
 
-div.caixaPop section#popAddProduto div.top {
+div.caixaPop section.popup div.top {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -659,11 +661,11 @@ div.caixaPop section#popAddProduto div.top {
     color: #fff;
 }
 
-div.caixaPop section#popAddProduto div.top h2 {
+div.caixaPop section.popup div.top h2 {
     font-size: 17px;
 }
 
-div.caixaPop section#popAddProduto div.top button {
+div.caixaPop section.popup div.top button {
     border: none;
     background-color: transparent;
     font-size: 40px;
@@ -671,11 +673,11 @@ div.caixaPop section#popAddProduto div.top button {
 }
 
 
-div.caixaPop section#popAddProduto table {
+div.caixaPop section.popup table {
     padding: 10px;
 }
 
-div.caixaPop section#popAddProduto table td {
+div.caixaPop section.popup table td {
     font-size: 18px;
     padding: 5px 10px;
     border: none;
@@ -683,80 +685,110 @@ div.caixaPop section#popAddProduto table td {
     width: 17%;
 }
 
-div.caixaPop section#popAddProduto table td.botoesRemover {
+div.caixaPop section.popup table td.botoesRemover {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-div.caixaPop section#popAddProduto table td.botoesRemover a {
+div.caixaPop section.popup table td.botoesRemover a {
     color: var(--cor1);
     font-size: 30px;
 }
 
-div.caixaPop section#popAddProduto table td.imagem {
+div.caixaPop section.popup table td.imagem {
     height: 50px;
     width: 50px;
 }
 
-div.caixaPop section#popAddProduto table td.imagem img {
+div.caixaPop section.popup table td.imagem img {
     height: 100%;
     width: 100%;
     object-fit: contain;
 }
 
-div.caixaPop section#popAddProduto div.botoes {
+div.caixaPop section.popup div.botoes {
     display: flex;
     justify-content: space-between;
     gap: 10px;
     padding: 0 10px 15px 10px;
 }
 
-div.caixaPop section#popAddProduto div.botoes a {
+div.caixaPop section.popup div.botoes a,
+div.caixaPop section.popup div.botoes button{
     background-color: #333;
     color: #fff;
     padding: 10px 20px;
     border-radius: 10px;
+    font-size: 15px;
+    border: none;
 }
-
-div.caixaPop section#popAddProduto div.botoes a.btnFinalizar {
+div.caixaPop section.popup div.botoes a.btnFinalizar {
+    background-color: var(--cor1);
+}
+div.caixaPop section.popup div.botoes button.btnDestaque {
     background-color: var(--cor1);
 }
 
+div.caixaPop section.popup form {
+    width: 95%;
+    margin: 20px auto;
+}
+div.caixaPop section.popup form label {
+    padding: 5px 0;
+    display: block;
+}
+div.caixaPop section.popup form input,
+div.caixaPop section.popup form textarea,
+div.caixaPop section.popup form select {
+    border: 1px solid #000;
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 0 0 10px 0;
+}
+div.caixaPop section.popup form textarea {
+    height: 100px;
+}
 @media (max-width: 600px) {
-    div.caixaPop section#popAddProduto table td {
+    div.caixaPop section.popup table td {
         font-size: 15px;
     }
     
-    div.caixaPop section#popAddProduto table td.botoesRemover a {
+    div.caixaPop section.popup table td.botoesRemover a {
         font-size: 20px;
     }
     
-    div.caixaPop section#popAddProduto table td.imagem {
+    div.caixaPop section.popup table td.imagem {
         display: none;
     }
     
-    div.caixaPop section#popAddProduto div.botoes a {
+    div.caixaPop section.popup div.botoes a {
         padding: 3px 7px;
         font-size: 15px;
     }
 }
 
 @media (max-width: 450px) {
-    div.caixaPop section#popAddProduto table td {
+    div.caixaPop section.popup table td {
         font-size: 14px;
         padding: 0;
     }
     
-    div.caixaPop section#popAddProduto table td.botoesRemover a {
+    div.caixaPop section.popup table td.botoesRemover a {
         font-size: 17px;
         padding: 0;
     }
     
     
-    div.caixaPop section#popAddProduto div.botoes a {
+    div.caixaPop section.popup div.botoes a {
         font-size: 14px;
     }
+}
+
+.esconde {
+    display: none;
+    visibility: hidden;
 }
 
 /* 

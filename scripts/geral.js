@@ -41,3 +41,8 @@ function removeReview(id) {
     section.classList.remove("revela");
 }
 
+function formatarDinheiro(valor) {
+    // let valorFormatado = valor.toLocaleString('pt-AO');
+    let valorFormatado = valor.toLocaleString('pt-AO', { style: 'currency', currency: 'AOA' });
+  return valorFormatado
+}

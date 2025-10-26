@@ -1,29 +1,51 @@
-const btnAddProduto = document.querySelectorAll(".btnAdd")
+const btnAbrirPop = document.querySelectorAll(".btnAbrirPop")
 const caixaPop = document.querySelector(".caixaPop")
 const btnFecharPop = document.querySelectorAll(".btnFecharPop")
-const popup = document.querySelector("#popAddProduto")
+const popup = document.querySelectorAll(".popup")
 
-btnAddProduto.forEach(btnAdd => {
-    btnAdd.addEventListener("click", (evt) => {
+function fecharPop() {
+    popup.forEach(pop => {
+        pop.style.display = "none"
+    })
+    body.style.overflowY = "auto"
+    caixaPop.style.display = "none"
+}
+
+function abrirPop(valorBtn) {
+    popup.forEach(pop => {
+        let valorPop = pop.getAttribute("valor")
+        
+        if (valorBtn == valorPop) {
+            body.style.overflowY = "hidden"
+            caixaPop.style.display = "flex"
+            pop.style.display = "flex"
+        } else {
+            pop.style.display = "none"
+        }
+    })
+}
+
+btnAbrirPop.forEach(btnAbrir => {
+    btnAbrir.addEventListener("click", (evt) => {
         evt.preventDefault()
-        body.style.overflowY = "hidden"
-        caixaPop.style.display = "flex"
+        let valorBtn = btnAbrir.getAttribute("valor")
+        abrirPop(valorBtn)
     })
 })
 
 btnFecharPop.forEach(btnFechar => {
     btnFechar.addEventListener("click", (evt) => {
         evt.preventDefault()
-        body.style.overflowY = "auto"
-        caixaPop.style.display = "none"
+        fecharPop()
     })
 })
 
-popup.addEventListener("click", (e) => {
-    e.stopPropagation()
+popup.forEach(pop => {
+    pop.addEventListener("click", (e) => {
+        e.stopPropagation()
+    })
 })
 
 caixaPop.addEventListener("click", (e) => {
-    body.style.overflowY = "auto"
-    caixaPop.style.display = "none"
+    fecharPop()
 })

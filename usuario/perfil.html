@@ -5,13 +5,129 @@
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="../assets/estilos/bootstrap-icons.css">
+  <link rel="stylesheet" href="../assets/estilos/animacoes.css">
   <link rel="stylesheet" href="../assets/estilos/geral.css">
   <link rel="stylesheet" href="../assets/estilos/usuario/perfil.css">
   <title>Melp Digital</title>
 </head>
 <body>
-  <div class="siteTodo">
-      <header>
+
+    <div class="caixaPop">
+        <section class="popup" valor="popAddProduto">
+            <div class="top">
+                <h2>Adicionar novo Produto </h2>
+                <button class="btnFecharPop"><i class="bi-x"></i></button>
+            </div>
+            <form action="" method="post">
+            	<label for="nome">Nome</label>
+            	<input type="text" name="nome" id="nome" value="" placeholder="Nome do produto" />
+            	<label for="categoria">Categoria</label>
+            	<select name="categoria" id="categoria">
+            	    <option selected value="">Categoria</option>
+            	    <option value="Tecnologia">Tecnologia</option>
+            	    <option value="Telemóveis">Telemóveis</option>
+            	    <option value="Vestuário">Vestuário</option>
+            	    <option value="Calçados">Calçados</option>
+            	</select>
+            	<label for="preco">Preço</label>
+            	<input type="number" step="0.01" name="preco" id="preco" value="0" placeholder="Preço do produto" />
+            	<label for="foto">Imagem do Produto</label>
+            	<input type="file" name="foto" id="foto" value="" />
+            	<label for="descricao">Descrição</label>
+            	<textarea name="descricao" id="descricao" placeholder="Descrição do produto " ></textarea>
+            	<input type="text" name="idForm" id="idForm" value="0" class="esconde" />
+                <div class="botoes">
+                    <a class="btnFecharPop" href="#">Cancelar</a>
+                    <button class="btnDestaque" name="btnSubmitAddProduto" type="submit">Adicionar</button>
+                </div>
+            </form>
+        </section> 
+        <section class="popup" valor="popAddServico">
+        	<div class="top">
+        		<h2>Adicionar novo Servico </h2>
+        		<button class="btnFecharPop"><i class="bi-x"></i></button>
+        	</div>
+            <form action="" method="post">
+                <label for="titulo">Titulo</label>
+                <input type="text" name="titulo" id="titulo" value="" placeholder="Titulo do serviço" />
+                <label for="categoria">Categoria</label>
+                <select name="categoria" id="categoria">
+                    <option selected value="">Categoria</option>
+                    <option value="Tecnologia">Design</option>
+                    <option value="">Eletricidade</option>
+                    <option value="">Eletrônica</option>
+                    <option value="">Beleza</option>
+                </select>
+                <label for="preco">Preço</label>
+                <input type="number" step="0.01" name="preco" id="preco" value="" placeholder="Preço do serviço" />
+                <label for="foto">Imagem do serviço</label>
+                <input type="file" name="foto" id="foto" value="" />
+                <label for="descricao">Descrição</label>
+                <textarea name="descricao" id="descricao" placeholder="Descrição do serviço"></textarea>
+                <input type="text" name="idForm" id="idForm" value="0" class="esconde" />
+                <div class="botoes">
+                    <a class="btnFecharPop" href="#">Cancelar</a>
+                    <button class="btnDestaque" type="submit">Adicionar</button>
+                </div>
+            </form>
+        </section>
+        <section class="popup" valor="popAddMusica">
+            <div class="top">
+                <h2>Adicionar nova Música </h2>
+                <button class="btnFecharPop"><i class="bi-x"></i></button>
+            </div>
+            <form action="" method="post">
+                <label for="titulo">Titulo</label>
+                <input type="text" name="titulo" id="titulo" value="" placeholder="Titulo da música" />
+                <label for="genero">Genero</label>
+                <select name="genero" id="genero">
+                    <option value="">HIP HOP / Rap</option>
+                    <option value="">R&B</option>
+                    <option value="">Afro House</option>
+                    <option value="">Kizomba</option>
+                </select>
+                <label for="foto">Arquivo de música</label>
+                <input type="file" name="foto" id="foto" value="" />
+                <label for="foto">Imagem de capa</label>
+                <input type="file" name="foto" id="foto" value="" />
+                <label for="descricao">Descrição</label>
+                <textarea name="descricao" id="descricao" placeholder="Descrição do serviço"></textarea>
+                <div class="botoes">
+                    <a class="btnFecharPop" href="#">Cancelar</a>
+                    <button class="btnDestaque" type="submit">Adicionar</button>
+                </div>
+            </form>
+        </section>
+        <section class="popup" valor="popAddArtigo">
+            <div class="top">
+                <h2>Adicionar novo Artigo </h2>
+                <button class="btnFecharPop"><i class="bi-x"></i></button>
+            </div>
+            <form action="" method="post">
+                <label for="titulo">Titulo</label>
+                <input type="text" name="titulo" id="titulo" value="" placeholder="Titulo do serviço" />
+                <label for="categoria">Categoria</label>
+                <select name="categoria" id="categoria">
+                    <option value="">Tecnologia</option>
+                    <option value="">Biologia</option>
+                    <option value="">Cultura</option>
+                    <option value="">Beleza</option>
+                </select>
+                <label for="preco">Autor</label>
+                <input type="text" name="autor" id="autor" value="" placeholder="Nome do autor" />
+                <label for="foto">Imagem de capa</label>
+                <input type="file" name="foto" id="foto" value="" />
+                <label for="descricao">Descrição</label>
+                <textarea name="descricao" id="descricao" placeholder="Conteúdo do artigo"></textarea>
+                <div class="botoes">
+                    <a class="btnFecharPop" href="#">Cancelar</a>
+                    <button class="btnDestaque" type="submit">Adicionar</button>
+                </div>
+            </form>
+        </section>
+    </div> 
+<div class="siteTodo">
+    <header>
     <nav>
         <div id="logo">
             <a href="../index.html">
@@ -47,7 +163,7 @@
         <section id="top">
                 <div class="left">
                     <div class="imagem">
-                        <a href="#">
+                        <a href="../assets/imagens/perfil/foto01.jpg">
                             <img src="../assets/imagens/perfil/foto01.jpg" alt="Imagem" />
                         </a>
                     </div>
@@ -61,22 +177,22 @@
                             </div>
                             <div class="item">
                                 <strong>2</strong>
-                                <span>Estabelecimentos</span>
+                                <span>Serviços</span>
                             </div>
                             <div class="item">
                                 <strong>18</strong>
-                                <span>Dicas</span>
+                                <span>Músicas</span>
                             </div>
                             <div class="item">
-                                <strong>8</strong>
-                                <span>Eventos</span>
+                                <strong>5</strong>
+                                <span>Artigos</span>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
         <section id="ctas">
-                <a href="../produto/adicionar.html" class="item">
+                <a href="#" valor="popAddProduto" class="item btnAbrirPop">
                     <div class="icon">
                         <i class="bi-plus"></i>
                     </div>
@@ -85,100 +201,236 @@
                         <p>Publique um novo produto</p>
                     </div>
                 </a>
-                <a href="../estabelecimento/adicionar.html" class="item">
+                <a href="#" valor="popAddServico" class="item btnAbrirPop">
                     <div class="icon">
                         <i class="bi-house"></i>
                     </div>
                     <div class="info">
-                        <h3>Adicionar Estabelecimento </h3>
-                        <p>Adicione uma fazenda, loja, etc.</p>
+                        <h3>Adicionar Servico </h3>
+                        <p>Adicione uma novo serviço</p>
                     </div>
                 </a>
-                <a href="../dica/adicionar.html" class="item">
+                <a valor="popAddMusica" class="item btnAbrirPop" href="#" >
                     <div class="icon">
                         <i class="bi-lightbulb"></i>
                     </div>
                     <div class="info">
-                        <h3>Publicar uma dica </h3>
-                        <p>Publique uma nova dica</p>
+                        <h3>Publicar uma música </h3>
+                        <p>Publique uma nova música</p>
                     </div>
                 </a>
-                <a href="../evento/adicionar.html" class="item">
+                <a href="#" valor="popAddArtigo" class="item btnAbrirPop">
                     <div class="icon">
                         <i class="bi-calendar-date"></i>
                     </div>
                     <div class="info">
-                        <h3>Divulgar um evento</h3>
-                        <p>Publique um novo evento</p>
+                        <h3>Divulgar um artigo</h3>
+                        <p>Publique um novo artigo</p>
                     </div>
                 </a>
             </section>
-    <section id="filtro">
-		<aside class="botoes">
-		    <button valor="todos" class="ativo">Todos</button>
-			<button valor="produtos" >produtos</button>
-			<button valor="Telemóveis" >teg ugu </button>
-		</aside>
-		<aside class="itens">
-			<div class="item listaCard" valor="produtos">
-				<div class="card">
-					<div class="imagem">
-						<a href="detalhes.html">
-							<img src="../assets/imagens/produtos/itel01.jpg" alt="Imagem" />
-						</a>
-					</div>
-					<div class="informacoes">
-						<h2>Itel S18 </h2>
-						<p><a href="#">Telemóveis</a></p>
-						<p>Cor: <strong>Azul</strong></p>
-						<p class="preco"><span> <del>99.000,00 KZ</del> </span><strong>80.000,00 KZ</strong></p>
-					</div>
-					<div class="botoes">
-						<a href="detalhes.html">Detalhes</a>
-					</div>
-				</div>
-				<div class="card">
-					<div class="imagem">
-						<a href="detalhes.html">
-							<img src="../assets/imagens/produtos/nike04.jpg" alt="Imagem" />
-						</a>
-					</div>
-					<div class="informacoes">
-						<h2>Nike </h2>
-						<p><a href="#">Calçados</a></p>
-						<p>Cor: <strong>Preto</strong></p>
-						<p class="preco"><span> <del>99.000,00 KZ</del> </span><strong>80.000,00 KZ</strong></p>
-					</div>
-					<div class="botoes">
-						<a href="detalhes.html">Detalhes</a>
-					</div>
-				</div>
-				<div class="card">
-					<div class="imagem">
-						<a href="detalhes.html">
-							<img src="../assets/imagens/produtos/itel01.jpg" alt="Imagem" />
-						</a>
-					</div>
-					<div class="informacoes">
-						<h2>Itel S18 </h2>
-						<p><a href="#">Telemóveis</a></p>
-						<p>Cor: <strong>Azul</strong></p>
-						<p class="preco"><span> <del>99.000,00 KZ</del> </span><strong>80.000,00 KZ</strong></p>
-					</div>
-					<div class="botoes">
-						<a href="detalhes.html">Detalhes</a>
-					</div>
-				</div>
-			</div>
-		</aside>
-	</section>
-        </main>
-
-<footer>
+        <section id="filtro">
+            <aside class="botoes">
+                <button class="ativo" valor="Produtos">Produtos</button>
+                <button valor="Serviços">Serviços</button>
+                <button valor="Musicas">Musicas</button>
+                <button valor="Artigos">Artigos</button>
+            </aside>
+            
+            <aside class="itens">
+                <div valor="Produtos" class="item">
+                    <div class="cima">
+                        <h2>Meus produtos</h2>
+                        <a valor="popAddProduto" class="btnAbrirPop" href="#">Adicionar</a>
+                    </div>
+                    <div class="baixo listaCard">
+                        <div class="card">
+                            <div class="imagem">
+                                <a href="../produto/detalhes.html">
+                                    <img src="../assets/imagens/produtos/itel01.jpg" alt="Imagem" />
+                                </a>
+                            </div>
+                            <div class="informacoes">
+                                <h2>Itel S18 </h2>
+                                <p><a href="#">Equipamentos Eletrônicos</a></p>
+                                <p class="preco"><strong>8000000</strong> <strong> KZ</strong></p>
+                            </div>
+                            <p class="esconde">1</p>
+                        	<div class="descricao esconde">
+                        	    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam esse eos facilis? Repellat consequuntur consectetur repellendus cupiditate, vitae iure laboriosam. Quia error deserunt eos corporis ipsam dolorem quibusdam molestiae numquam!
+                        	</div>
+                            <div class="botoes">
+                                <a class="btnEditar" valor="popAddProduto"  href="#"><i class="bi-pencil-square "></i></a>
+                                <a href="#"><i class="bi-trash"></i></a>
+                            </div>
+                        </div>
+                        <div class="card">
+                        	<div class="imagem">
+                        		<a href="../produto/detalhes.html">
+                        			<img src="../assets/imagens/produtos/foto03.jpg" alt="Imagem" />
+                        		</a>
+                        	</div>
+                        	<div class="informacoes">
+                        		<h2>Galaxy Tab A8</h2>
+                        		<p><a href="#">Equipamentos Eletrônicos</a></p>
+                                <p class="preco"><strong>18000000</strong> <strong> KZ</strong></p>
+                        	</div>
+                        	<p class="esconde">2</p>
+                        	<div class="descricao esconde">
+                        	    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam esse eos facilis? Repellat consequuntur consectetur repellendus cupiditate, vitae iure laboriosam. Quia error deserunt eos corporis ipsam dolorem quibusdam molestiae numquam!
+                        	</div>
+                        	<div class="botoes">
+                        		<a class="btnEditar" valor="popAddProduto"  href="#"><i class="bi-pencil-square "></i></a>
+                        		<a href="#"><i class="bi-trash"></i></a>
+                        	</div>
+                        </div>
+                        <div class="card">
+                        	<div class="imagem">
+                        		<a href="../produto/detalhes.html">
+                        			<img src="../assets/imagens/produtos/foto02.jpg" alt="Imagem" />
+                        		</a>
+                        	</div>
+                        	<div class="informacoes">
+                        		<h2>Nike Preta</h2>
+                        		<p><a href="#">Calçados</a></p>
+                                <p class="preco"><strong>180000</strong> <strong> KZ</strong></p>
+                        	</div>
+                        	<p class="esconde">3</p>
+                        	<div class="descricao esconde">
+                        	    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam esse eos facilis? Repellat consequuntur consectetur repellendus cupiditate, vitae iure laboriosam. Quia error deserunt eos corporis ipsam dolorem quibusdam molestiae numquam!
+                        	</div>
+                        	<div class="botoes">
+                        		<a class="btnEditar" valor="popAddProduto"  href="#"><i class="bi-pencil-square "></i></a>
+                        		<a href="#"><i class="bi-trash"></i></a>
+                        	</div>
+                        </div>
+                    </div>
+                </div>
+                <div valor="Serviços" class="item">
+                    <div class="cima">
+                        <h2>Meus Serviços</h2>
+                        <a valor="popAddServico" class="btnAbrirPop" href="#">Adicionar</a>
+                    </div>
+                    <div class="baixo listaCard">
+                        <div class="card card3">
+                            <div class="imagem">
+                                <a href="../servico/detalhes.html">
+                                    <img src="../assets/imagens/servicos/design.jpg" alt="Imagem" />
+                                </a>
+                            </div>
+                            <div class="informacoes">
+                                <h2><i class="bi-diamond"></i> Design Grafico</h2>
+                                <h2><a href="#"><i class="bi-person-fill"></i> Miguel Ucuepandi</a></h2>
+                                <p class="preco"><strong>80.000,00 KZ</strong></p>
+                            </div>
+                            <div class="botoes">
+                                <a class="btnEditar" valor="popAddServico"  href="#"><i class="bi-pencil-square "></i></a>
+                                <a href="#"><i class="bi-trash"></i></a>
+                            </div>
+                        </div>
+                        <div class="card card3">
+                            <div class="imagem">
+                                <a href="../servico/detalhes.html">
+                                    <img src="../assets/imagens/servicos/eletricista01.jpg" alt="Imagem" />
+                                </a>
+                            </div>
+                            <div class="informacoes">
+                                <h2><i class="bi-diamond"></i> Eletricista</h2>
+                                <h2><a href="#"><i class="bi-person-fill"></i> Miguel Ucuepandi</a></h2>
+                                <p class="preco"><strong>80.000,00 KZ</strong></p>
+                            </div>
+                            <div class="botoes">
+                                <a class="btnEditar" valor="popAddServico"  href="#"><i class="bi-pencil-square "></i></a>
+                                <a href="../produto/detalhes.html"><i class="bi-trash"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div valor="Musicas" class="item">
+                    <div class="cima">
+                        <h2>Minhas Músicas</h2>
+                        <a valor="popAddMusica" class="btnAbrirPop" href="#">Adicionar </a>
+                    </div>
+                    <div class="baixo listaCard">
+                        <div class="card card2">
+                            <div class="imagem">
+                                <a href="../musica/detalhes.html">
+                                    <img src="../assets/imagens/musicas/foto01.jpg" alt="Imagem" />
+                                </a>
+                            </div>
+                            <div class="informacoes">
+                                <h2> O começo</h2>
+                                <p><a href="#">Cantor 1</a></p>
+                            </div>
+                            <div class="botoes">
+                                <a class="btnEditar" valor="popAddMusica"  href="#"><i class="bi-pencil-square "></i></a>
+                                <a href="#"><i class="bi-trash"></i></a>
+                            </div>
+                        </div>
+                        <div class="card card2">
+                            <div class="imagem">
+                                <a href="../musica/detalhes.html">
+                                    <img src="../assets/imagens/musicas/foto01.jpg" alt="Imagem" />
+                                </a>
+                            </div>
+                            <div class="informacoes">
+                                <h2> O começo</h2>
+                                <p><a href="#">Cantor 1</a></p>
+                            </div>
+                            <div class="botoes">
+                                <a class="btnEditar" valor="popAddMusica"  href="#"><i class="bi-pencil-square "></i></a>
+                                <a href="#"><i class="bi-trash"></i></a>
+                            </div>
+                        </div>
+                        <div class="card card2">
+                            <div class="imagem">
+                                <a href="../musica/detalhes.html">
+                                    <img src="../assets/imagens/musicas/foto01.jpg" alt="Imagem" />
+                                </a>
+                            </div>
+                            <div class="informacoes">
+                                <h2> O começo</h2>
+                                <p><a href="#">Cantor 1</a></p>
+                            </div>
+                            <div class="botoes">
+                                <a class="btnEditar" valor="popAddMusica"  href="#"><i class="bi-pencil-square "></i></a>
+                                <a href="#"><i class="bi-trash"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div valor="Artigos" class="item">
+                    <div class="cima">
+                        <h2>Meus Artigos</h2>
+                        <a valor="popAddArtigo" class="btnAbrirPop" href="#">Divulgar</a>
+                    </div>
+                    <div class="baixo listaCard">
+                        <div class="card card4">
+                            <div class="imagem">
+                                <a href="../conteudo/artigo/detalhes.html">
+                                    <img src="../assets/imagens/artigos/foto01.jpg" alt="Imagem" />
+                                </a>
+                            </div>
+                            <div class="informacoes">
+                                <h2>PHP - Vantagens e desvantagens</h2>
+                                <p><a href="../conteudo/artigo/index.html">Artigo</a></p>
+                                <p>Tecnologia e inovação</p>
+                            </div>
+                            <div class="botoes">
+                                <a class="btnEditar" valor="popAddArtigo"  href="#"><i class="bi-pencil-square "></i></a>
+                                <a href="#"><i class="bi-trash"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </section>
+    </main>
+    <footer>
     <section id="self">
         <h2>Melp Digital</h2>
         <div>
-            O maior mercaso produtos angolanos. Conectamos, compradores e vendedores em todo o país.
+            O maior mercado produtos angolanos. Conectamos, compradores e vendedores em todo o país.
         </div>
     </section>
     <section id="linksU">
@@ -207,9 +459,11 @@
         <a href="#">Copyright &copy; 2025 Melp-Digital. Todos os direitos reservados!</a>
     </section>
 </footer>
-  </div>
+</div>
 
   <script src="../scripts/geral.js"></script>
-  <script src="../scripts/filtro.js"></script>
+  <script src="../scripts/filtro2.js"></script>
+  <script src="../scripts/perfil.js"></script>
 </body>
 </html>
+
