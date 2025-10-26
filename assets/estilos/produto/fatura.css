@@ -17,44 +17,71 @@ main section#top {
     padding: 2% 0;
 }
 
-main section#top div.opcoes {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-main section#top div.opcoes div.item {
-    width: 120px;
-    border: 2px solid var(--cor2);
-    border-radius: 10px;
-    overflow: hidden;
-    transition: 0.1s;
-}
-
-main section#top div.opcoes div.item:hover,
-main section#top div.opcoes div.item.ativo {
-    border-color: var(--cor1);
-    transform: scale(1.05);
-}
-
-main section#top div.opcoes div.item div.imagem {
-    height: 60px;
+main section#top div.fatura {
     width: 100%;
-    background-color: #ddd;
+    max-width: 800px;
+    box-shadow: 0 0 10px #ccc;
+    border-radius: 10px;
+    padding: 2%;
 }
 
-main section#top div.opcoes div.item div.imagem img {
+main section#top div.fatura  h1 {
+    font-size: 18px;
+}
+
+main section#top div.fatura p {
+    font-size: 14px;
+}
+
+main section#top div.fatura div.top {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 10px;
+}
+
+main section#top div.fatura div.top div.left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+main section#top div.fatura div.top div.left div.logo {
+    height: 70px;
+    width: 70px;
+}
+
+main section#top div.fatura div.top div.left div.logo img {
     height: 100%;
     width: 100%;
 }
 
-main section#top div.opcoes div.item h2 {
-    font-size: 12px;
-    margin: 10px;
+main section#top div.fatura div.infoEmpresa {
+    margin: 10px 0;
 }
 
-main section#top div.valor h1 {
-    font-size: 25px;
+main section#top div.fatura div.infoCliente {
+    margin: 20px 0;
+}
+
+main section#top div.fatura table {
+    border: 1px solid #ddd;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+main section#top div.fatura table td {
+    border: 1px solid #ddd;
+    padding: 7px;
+}
+
+main section#top div.fatura table thead td,
+main section#top div.fatura table tfoot td {
+    font-weight: bold;
+}
+
+main section#top div.fatura table tbody td {
+    font-size: 13px;
 }
 
 main section#top div.botoes {
@@ -71,7 +98,7 @@ main section#top div.botoes a {
     border-radius: 10px;
 }
 
-main section#top div.botoes a.btnBaixarFatura {
+main section#top div.botoes a.btnImprimir {
     background-color: var(--cor1);
 }
 
@@ -94,18 +121,34 @@ main section#top div.botoes a.btnBaixarFatura {
     }
 }
 
+ /* ESPECÍFICO: quando imprimir escondemos todo o resto */
+    @media print {
+        body * {
+          visibility: hidden !important;
+        }
+        header, footer {
+            display: none;
+        }
+        main section#top div.fatura {
+            visibility: visible !important; 
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            min-width: 200px;
+            box-shadow: none;
+            margin: 10px auto;
+        }
+        
+        main section#top div.fatura * {
+            visibility: visible !important;
+        }
+        @page { 
+            size: A4 portrait; margin: 0;
+        }
+    }
+
 @media (max-width: 450px) {
-    main section#top table td {
-        font-size: 14px;
-        padding: 0;
-    }
-    
-    main section#top table td.botoesRemover a {
-        font-size: 17px;
-        padding: 0;
-    }
-    
-    
     main section#top div.botoes a {
         font-size: 14px;
     }

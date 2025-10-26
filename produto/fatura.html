@@ -49,13 +49,76 @@
   
   <main>
     <section id="top">
-        <h2>Fatura</h2>
         <div class="fatura">
-             f
+            <div class="top">
+                <div class="left">
+                    <div class="logo">
+                        <img src="../assets/imagens/diversas/logo02.jpg" alt="" />
+                    </div>
+                    <div class="info">
+                        <h1>Melp-Digital </h1>
+                        <p>Tecnologia e inovação </p>
+                        <p>NIF: 0000000000 </p>
+                    </div>
+                </div>
+                <div class="right">
+                    <h1>FATURA</h1>
+                    <p><strong>Número: </strong>1</p>
+                    <p><strong>Data: </strong>20/10/2025</p>
+                    <p><strong>Termos de pagamento: </strong>Dinheiro</p>
+                </div>
+            </div>
+            <div class="infoEmpresa">
+                <p>Luanda, Angola</p>
+                <p>Email: melpDigital@gmail.com</p>
+                <p>Tel: 929 931 491</p>
+            </div>
+            <div class="infoCliente">
+                <h1>Cliente</h1>
+                <p><strong>Miguel Quintino Ucuepandi</strong></p>
+                <p>NIF: 00000000000000</p>
+                <p>Luanda, Angola</p>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <td>Descrição</td>
+                        <td>QTD.</td>
+                        <td>Preço Unit.</td>
+                        <td>Total</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Itel S18</td>
+                        <td class="itemQtd">2</td>
+                        <td class="itemPrecoUnit">90000</td>
+                        <td class="itemTotal">0</td>
+                    </tr>
+                    <tr>
+                        <td>Galaxi tab A8</td>
+                        <td class="itemQtd">1</td>
+                        <td class="itemPrecoUnit">130000</td>
+                        <td class="itemTotal">0</td>
+                    </tr>
+                    <tr>
+                        <td>Nike</td>
+                        <td class="itemQtd">1</td>
+                        <td class="itemPrecoUnit">25000</td>
+                        <td class="itemTotal">0</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3">Total</td>
+                        <td class="totalGeral">0</td>
+                    </tr>
+                </tfoot>
+            </table>
         </div>
         <div class="botoes">
         <a class="" href="./index.html">Voltar</a>
-        <a class="btnBaixarFatura" href="">Baixar</a>
+        <a class="btnImprimir" href="">Imprimir</a>
     </div>
       </section>
   </main>
@@ -98,12 +161,6 @@
 </div>
 
   <script src="../scripts/geral.js"></script>
-  <script>
-    document.querySelector(".btnBaixarFatura").onclick = (e) => {
-        e.preventDefault()
-        window.alert("Sucesso! ")
-        window.location = "./index.html"
-    }
-  </script>
+  <script src="../scripts/fatura.js"></script>
 </body>
 </html>
