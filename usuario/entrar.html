@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Melp-Digital - Login/Cadastro</title>
+    
+    <style>
+        :root {
+            --cor1: #FF771D;
+            --cor2: #090F4B;
+            --cor3: #429867;
+            --cor4: #2b5166;
+            --cor5: #482344;
+            --bg-light: #ffffff;
+            --bg-muted: #f8f9fa;
+            --text-primary: #1a1a1a;
+            --text-secondary: #6c757d;
+            --border-color: #e0e0e0;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.12);
+            --radius: 12px;
+            --transition: all 0.3s ease;
+            --font1: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            --error-color: #dc3545;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font1);
+            background: linear-gradient(135deg, var(--cor2) 0%, var(--cor4) 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            color: var(--text-primary);
+        }
+
+        .container {
+            background: var(--bg-light);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+            width: 100%;
+            max-width: 600px;
+            position: relative;
+            min-height: 500px;
+        }
+
+        .form-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .form-section {
+            width: 100%;
+            flex-shrink: 0;
+            padding: 40px 30px;
+            transition: opacity 0.3s ease;
+        }
+
+        .form-wrapper.signup-active {
+            transform: translateX(-100%);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: var(--cor2);
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .social-login {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .social-btn {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            background: var(--bg-light);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 14px;
+            transition: var(--transition);
+            text-decoration: none;
+            color: var(--text-primary);
+        }
+
+        .social-btn:hover {
+            background: var(--bg-muted);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .divider {
+            text-align: center;
+            margin: 20px 0;
+            position: relative;
+        }
+
+        .divider::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: var(--border-color);
+        }
+
+        .divider span {
+            background: var(--bg-light);
+            padding: 0 15px;
+            color: var(--text-secondary);
+            font-size: 14px;
+            position: relative;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            font-size: 14px;
+            color: var(--text-primary);
+        }
+
+        .input-wrapper {
+            position: relative;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px 40px 12px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            font-size: 16px;
+            transition: var(--transition);
+            background: var(--bg-light);
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--cor1);
+            box-shadow: 0 0 0 3px rgba(255, 119, 29, 0.1);
+        }
+
+        .form-input.error {
+            border-color: var(--error-color);
+            background: #fff5f5;
+        }
+
+        .error-message {
+            color: var(--error-color);
+            font-size: 12px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+            color: var(--text-secondary);
+            transition: var(--transition);
+        }
+
+        .password-toggle:hover {
+            color: var(--cor1);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            background: var(--cor1);
+            color: white;
+            border: none;
+            border-radius: var(--radius);
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            background: #e66619;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .submit-btn:disabled {
+            background: var(--text-secondary);
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .switch-form {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .switch-link {
+            color: var(--cor1);
+            text-decoration: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .switch-link:hover {
+            text-decoration: underline;
+        }
+
+        .popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .popup.show {
+            display: flex;
+        }
+
+        .popup-content {
+            background: var(--bg-light);
+            padding: 30px;
+            border-radius: var(--radius);
+            text-align: center;
+            max-width: 300px;
+            width: 90%;
+            animation: popupFadeIn 0.3s ease;
+        }
+
+        @keyframes popupFadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .popup-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .popup-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--text-primary);
+        }
+
+        .popup-message {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        .popup-close {
+            background: var(--cor1);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: var(--radius);
+            cursor: pointer;
+            font-size: 14px;
+            transition: var(--transition);
+        }
+
+        .popup-close:hover {
+            background: #e66619;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                max-width: 100%;
+                border-radius: 0;
+                min-height: 100vh;
+            }
+
+            .form-section {
+                padding: 30px 20px;
+            }
+
+            .social-login {
+                flex-direction: column;
+            }
+
+            .logo {
+                font-size: 24px;
+            }
+        }
+
+        /* Animação de loading no botão */
+        .loading {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 2px solid #ffffff;
+            border-radius: 50%;
+            border-top-color: transparent;
+            animation: spin 0.8s linear infinite;
+            margin-left: 8px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-wrapper" id="formWrapper">
+            <!-- Login Section -->
+            <div class="form-section">
+                <div class="header">
+                    <div class="logo">Melp-Digital</div>
+                    <div class="subtitle">Entre na sua conta</div>
+                </div>
+
+                <form id="loginForm" onsubmit="handleSubmit(event, 'login')">
+                    <div class="form-group">
+                        <label class="form-label" for="loginEmail">Email</label>
+                        <div class="input-wrapper">
+                            <input 
+                                type="email" 
+                                id="loginEmail" 
+                                class="form-input" 
+                                placeholder="seu@email.com"
+                                required
+                            >
+                        </div>
+                        <div class="error-message">Por favor, insira um email válido</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="loginPassword">Senha</label>
+                        <div class="input-wrapper">
+                            <input 
+                                type="password" 
+                                id="loginPassword" 
+                                class="form-input" 
+                                placeholder="••••••••"
+                                required
+                            >
+                            <button type="button" class="password-toggle" onclick="togglePassword('loginPassword')">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="error-message">Por favor, insira sua senha</div>
+                    </div>
+
+                    <button type="submit" class="submit-btn">
+                        Entrar
+                    </button>
+                </form>
+
+                <div class="divider">
+                    <span>ou</span>
+                </div>
+                
+                <div class="social-login">
+                    <button class="social-btn" onclick="showSocialPopup('Google')">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+                            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+                            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
+                            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
+                        </svg>
+                        Google
+                    </button>
+                    <button class="social-btn" onclick="showSocialPopup('Facebook')">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="#1877f2">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                        </svg>
+                        Facebook
+                    </button>
+                </div>
+                
+                <div class="switch-form">
+                    Não tem uma conta? 
+                    <a href="#" class="switch-link" onclick="switchForm('signup')">Cadastre-se</a>
+                </div>
+            </div>
+
+            <!-- Signup Section -->
+            <div class="form-section">
+                <div class="header">
+                    <div class="logo">Melp-Digital</div>
+                    <div class="subtitle">Crie sua conta</div>
+                </div>
+
+                <form id="signupForm" onsubmit="handleSubmit(event, 'signup')">
+                    <div class="form-group">
+                        <label class="form-label" for="signupName">Nome completo</label>
+                        <div class="input-wrapper">
+                            <input 
+                                type="text" 
+                                id="signupName" 
+                                class="form-input" 
+                                placeholder="Seu nome"
+                                required
+                            >
+                        </div>
+                        <div class="error-message">Por favor, insira seu nome</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="signupEmail">Email</label>
+                        <div class="input-wrapper">
+                            <input 
+                                type="email" 
+                                id="signupEmail" 
+                                class="form-input" 
+                                placeholder="seu@email.com"
+                                required
+                            >
+                        </div>
+                        <div class="error-message">Por favor, insira um email válido</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="signupPassword">Senha</label>
+                        <div class="input-wrapper">
+                            <input 
+                                type="password" 
+                                id="signupPassword" 
+                                class="form-input" 
+                                placeholder="••••••••"
+                                required
+                            >
+                            <button type="button" class="password-toggle" onclick="togglePassword('signupPassword')">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="error-message">A senha deve ter pelo menos 6 caracteres</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="signupConfirmPassword">Confirmar senha</label>
+                        <div class="input-wrapper">
+                            <input 
+                                type="password" 
+                                id="signupConfirmPassword" 
+                                class="form-input" 
+                                placeholder="••••••••"
+                                required
+                            >
+                            <button type="button" class="password-toggle" onclick="togglePassword('signupConfirmPassword')">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="error-message">As senhas não coincidem</div>
+                    </div>
+
+                    <button type="submit" class="submit-btn">
+                        Criar conta
+                    </button>
+                </form>
+
+                <div class="divider">
+                    <span>ou</span>
+                </div>
+
+                <div class="social-login">
+                    <button class="social-btn" onclick="showSocialPopup('Google')">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+                            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+                            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
+                            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
+                        </svg>
+                        Google
+                    </button>
+                    <button class="social-btn" onclick="showSocialPopup('Facebook')">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="#1877f2">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                        </svg>
+                        Facebook
+                    </button>
+                </div>
+
+                <div class="switch-form">
+                    Já tem uma conta? 
+                    <a href="#" class="switch-link" onclick="switchForm('login')">Entrar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup de indisponibilidade -->
+    <div class="popup" id="socialPopup">
+        <div class="popup-content">
+            <div class="popup-icon">🔔</div>
+            <div class="popup-title">Em breve!</div>
+            <div class="popup-message" id="popupMessage"></div>
+            <button class="popup-close" onclick="closeSocialPopup()">Entendi</button>
+        </div>
+    </div>
+
+    <script>
+        // Alternar entre login e cadastro
+        function switchForm(form) {
+            const wrapper = document.getElementById('formWrapper');
+            if (form === 'signup') {
+                wrapper.classList.add('signup-active');
+            } else {
+                wrapper.classList.remove('signup-active');
+            }
+        }
+
+        // Mostrar popup de rede social
+        function showSocialPopup(platform) {
+            const popup = document.getElementById('socialPopup');
+            const message = document.getElementById('popupMessage');
+            message.textContent = `Login com ${platform} ainda não está disponível. Estamos trabalhando para trazer esta funcionalidade em breve!`;
+            popup.classList.add('show');
+        }
+
+        // Fechar popup
+        function closeSocialPopup() {
+            const popup = document.getElementById('socialPopup');
+            popup.classList.remove('show');
+        }
+
+        // Alternar visibilidade da senha
+        function togglePassword(inputId) {
+            const input = document.getElementById(inputId);
+            const toggle = input.nextElementSibling;
+            
+            if (input.type === 'password') {
+                input.type = 'text';
+                toggle.innerHTML = `
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+                        <line x1="1" y1="1" x2="23" y2="23"></line>
+                    </svg>
+                `;
+            } else {
+                input.type = 'password';
+                toggle.innerHTML = `
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                        <circle cx="12" cy="12" r="3"></circle>
+                    </svg>
+                `;
+            }
+        }
+
+        // Validação de formulário
+        function validateField(field) {
+            const value = field.value.trim();
+            const formGroup = field.closest('.form-group');
+            const errorMessage = formGroup.querySelector('.error-message');
+            
+            let isValid = true;
+            
+            // Remover classe de erro anterior
+            field.classList.remove('error');
+            errorMessage.classList.remove('show');
+            
+            // Validações específicas
+            if (field.hasAttribute('required') && !value) {
+                isValid = false;
+            } else if (field.type === 'email' && value) {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(value)) {
+                    isValid = false;
+                }
+            } else if (field.id === 'signupPassword' && value.length < 6) {
+                isValid = false;
+            } else if (field.id === 'signupConfirmPassword') {
+                const password = document.getElementById('signupPassword').value;
+                if (value !== password) {
+                    isValid = false;
+                }
+            }
+            
+            if (!isValid) {
+                field.classList.add('error');
+                errorMessage.classList.add('show');
+            }
+            
+            return isValid;
+        }
+
+        // Adicionar validação em tempo real
+        document.querySelectorAll('.form-input').forEach(input => {
+            input.addEventListener('blur', () => validateField(input));
+            input.addEventListener('input', () => {
+                if (input.classList.contains('error')) {
+                    validateField(input);
+                }
+            });
+        });
+
+        // Manipular envio do formulário
+        function handleSubmit(event, formType) {
+            event.preventDefault();
+            
+            const form = event.target;
+            const inputs = form.querySelectorAll('.form-input');
+            let isValid = true;
+            
+            // Validar todos os campos
+            inputs.forEach(input => {
+                if (!validateField(input)) {
+                    isValid = false;
+                }
+            });
+            
+            if (isValid) {
+                // Adicionar loading ao botão
+                const submitBtn = form.querySelector('.submit-btn');
+                const originalText = submitBtn.textContent;
+                submitBtn.innerHTML = originalText + '<span class="loading"></span>';
+                submitBtn.disabled = true;
+                
+                // Simular envio
+                setTimeout(() => {
+                    // Aqui você pode enviar os dados via POST
+                    const formData = new FormData(form);
+                    console.log('Dados do formulário:', Object.fromEntries(formData));
+                    
+                    // Restaurar botão
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                    
+                    // Mostrar mensagem de sucesso (você pode personalizar isso)
+                    alert(formType === 'login' ? 'Login realizado com sucesso!' : 'Cadastro realizado com sucesso!');
+                }, 1500);
+            }
+        }
+
+        // Fechar popup ao clicar fora
+        document.getElementById('socialPopup').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeSocialPopup();
+            }
+        });
+    </script>
+</body>
+</html>

@@ -21,7 +21,15 @@ a {
     --cor3: #429867;
     --cor4: #2b5166;
     --cor5: #482344;
-    
+    --bg-light: #ffffff;
+    --bg-muted: #f8f9fa;
+    --text-primary: #1a1a1a;
+    --text-secondary: #6c757d;
+    --border-color: #e0e0e0;
+    --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.12);
+    --radius: 12px;
+    --transition: all 0.3s ease;
     --font1: font1;
 }
 
@@ -791,6 +799,19 @@ div.caixaPop section.popup form textarea {
     visibility: hidden;
 }
 
+div.botoes {
+    padding: 0 0 30px 0;
+    text-align: center;
+}
+
+div.botoes a {
+    background-color: var(--cor1);
+    color: #fff;
+    padding: 10px 15px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 8px;
+}
 /* 
 	========== footer ==========
 */

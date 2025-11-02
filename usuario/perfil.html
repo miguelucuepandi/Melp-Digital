@@ -98,25 +98,25 @@
         </section>
         <section class="popup" valor="popAddArtigo">
             <div class="top">
-                <h2>Adicionar novo Artigo </h2>
+                <h2>Adicionar um novo video </h2>
                 <button class="btnFecharPop"><i class="bi-x"></i></button>
             </div>
             <form action="" method="post">
                 <label for="titulo">Titulo</label>
-                <input type="text" name="titulo" id="titulo" value="" placeholder="Titulo do serviço" />
-                <label for="categoria">Categoria</label>
-                <select name="categoria" id="categoria">
-                    <option value="">Tecnologia</option>
-                    <option value="">Biologia</option>
-                    <option value="">Cultura</option>
-                    <option value="">Beleza</option>
+                <input type="text" name="titulo" id="titulo" value="" placeholder="Titulo da música" />
+                <label for="genero">Genero</label>
+                <select name="genero" id="genero">
+                    <option value="">HIP HOP / Rap</option>
+                    <option value="">R&B</option>
+                    <option value="">Afro House</option>
+                    <option value="">Kizomba</option>
                 </select>
-                <label for="preco">Autor</label>
-                <input type="text" name="autor" id="autor" value="" placeholder="Nome do autor" />
+                <label for="foto">Arquivo de video</label>
+                <input type="file" name="foto" id="foto" value="" />
                 <label for="foto">Imagem de capa</label>
                 <input type="file" name="foto" id="foto" value="" />
                 <label for="descricao">Descrição</label>
-                <textarea name="descricao" id="descricao" placeholder="Conteúdo do artigo"></textarea>
+                <textarea name="descricao" id="descricao" placeholder="Descrição do video"></textarea>
                 <div class="botoes">
                     <a class="btnFecharPop" href="#">Cancelar</a>
                     <button class="btnDestaque" type="submit">Adicionar</button>
@@ -183,7 +183,7 @@
                             </div>
                             <div class="item">
                                 <strong>5</strong>
-                                <span>Artigos</span>
+                                <span>Videos</span>
                             </div>
                         </div>
                     </div>
@@ -222,8 +222,8 @@
                         <i class="bi-calendar-date"></i>
                     </div>
                     <div class="info">
-                        <h3>Divulgar um artigo</h3>
-                        <p>Publique um novo artigo</p>
+                        <h3>Divulgar um video</h3>
+                        <p>Publique um novo video</p>
                     </div>
                 </a>
             </section>
@@ -232,7 +232,7 @@
                 <button class="ativo" valor="Produtos">Produtos</button>
                 <button valor="Serviços">Serviços</button>
                 <button valor="Musicas">Musicas</button>
-                <button valor="Artigos">Artigos</button>
+                <button valor="Artigos">Videos</button>
             </aside>
             
             <aside class="itens">
@@ -407,26 +407,91 @@
                 </div>
                 <div valor="Artigos" class="item">
                     <div class="cima">
-                        <h2>Meus Artigos</h2>
-                        <a valor="popAddArtigo" class="btnAbrirPop" href="#">Divulgar</a>
+                        <h2>Meus Videos</h2>
+                        <a valor="popAddArtigo" class="btnAbrirPop" href="#">Adicionar</a>
                     </div>
                     <div class="baixo listaCard">
-                        <div class="card card4">
-                            <div class="imagem">
-                                <a href="../conteudo/artigo/detalhes.html">
-                                    <img src="../assets/imagens/artigos/foto01.jpg" alt="Imagem" />
-                                </a>
+            <div class="videos-grid">
+                <div class="video-card">
+                    <div class="video-card__thumbnail">
+                        <a href="#"><img src="../../assets/imagens/video/foto01.jpg" alt="Video">
+                            <div class="video-card__play"><i class="bi-play-fill"></i></div>
+                            <span class="video-card__duration">12:45</span>
+                        </a>
+                    </div>
+                    <div class="video-card__content">
+                        <div class="video-card__header">
+                            <div href="./detalhes.html" class="video-card__avatar">
+                                <img src="../../assets/imagens/perfil/foto01.jpg" alt="Imagem de perfil">
                             </div>
-                            <div class="informacoes">
-                                <h2>PHP - Vantagens e desvantagens</h2>
-                                <p><a href="../conteudo/artigo/index.html">Artigo</a></p>
-                                <p>Tecnologia e inovação</p>
-                            </div>
-                            <div class="botoes">
-                                <a class="btnEditar" valor="popAddArtigo"  href="#"><i class="bi-pencil-square "></i></a>
-                                <a href="#"><i class="bi-trash"></i></a>
+                            <div class="video-card__info">
+                                <h3 class="video-card__title">Tutorial Completo de Design Gráfico para Iniciantes</h3>
+                                <a href="../../usuario/detalhes.html" class="video-card__creator">Miguel Ucuepandi</a>
                             </div>
                         </div>
+                        <div class="video-card__meta">
+                            <span class="video-card__meta-item"><i class="bi-calendar-date "></i> Há 2 dias</span>
+                        </div>
+                
+                    </div>
+                            <div class="botoes">
+                                <a class="btnEditar" valor="popAddArtigo" href="#"><i class="bi-pencil-square "></i></a>
+                                <a href="#"><i class="bi-trash"></i></a>
+                            </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-card__thumbnail">
+                        <a href="#"><img src="../../assets/imagens/video/foto02.jpg" alt="Video">
+                            <div class="video-card__play"><i class="bi-play-fill"></i></div>
+                            <span class="video-card__duration">12:45</span>
+                        </a>
+                    </div>
+                    <div class="video-card__content">
+                        <div class="video-card__header">
+                            <div href="./detalhes.html" class="video-card__avatar">
+                                <img src="../../assets/imagens/perfil/foto01.jpg" alt="Imagem de perfil">
+                            </div>
+                            <div class="video-card__info">
+                                <h3 class="video-card__title">Tutorial Completo de Design Gráfico para Iniciantes</h3>
+                                <a href="../../usuario/detalhes.html" class="video-card__creator">Miguel Ucuepandi</a>
+                            </div>
+                        </div>
+                        <div class="video-card__meta">
+                            <span class="video-card__meta-item"><i class="bi-calendar-date "></i> Há 2 dias</span>
+                        </div>
+                    </div>
+                            <div class="botoes">
+                                <a class="btnEditar" valor="popAddArtigo" href="#"><i class="bi-pencil-square "></i></a>
+                                <a href="#"><i class="bi-trash"></i></a>
+                            </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-card__thumbnail">
+                        <a href="#"><img src="../../assets/imagens/video/foto01.jpg" alt="Video">
+                            <div class="video-card__play"><i class="bi-play-fill"></i></div>
+                            <span class="video-card__duration">12:45</span>
+                        </a>
+                    </div>
+                    <div class="video-card__content">
+                        <div class="video-card__header">
+                            <div href="./detalhes.html" class="video-card__avatar">
+                                <img src="../../assets/imagens/perfil/foto01.jpg" alt="Imagem de perfil">
+                            </div>
+                            <div class="video-card__info">
+                                <h3 class="video-card__title">Tutorial Completo de Design Gráfico para Iniciantes</h3>
+                                <a href="../../usuario/detalhes.html" class="video-card__creator">Miguel Ucuepandi</a>
+                            </div>
+                        </div>
+                        <div class="video-card__meta">
+                            <span class="video-card__meta-item"><i class="bi-calendar-date "></i> Há 2 dias</span>
+                        </div>
+                    </div>
+                            <div class="botoes">
+                                <a class="btnEditar" valor="popAddArtigo" href="#"><i class="bi-pencil-square "></i></a>
+                                <a href="#"><i class="bi-trash"></i></a>
+                            </div>
+                </div>
+            </div>
                     </div>
                 </div>
             </aside>

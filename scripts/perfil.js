@@ -44,7 +44,7 @@ function abrirPop(valorBtn, btnEditar = false) {
                     limparDadosFormServico(valorBtn, pop)
                     editarDadosServico(btnEditar, pop)
                 } else if (valorBtn == "popAddMusica") {
-                    //beditarDadosMusica(btnEditar, pop) 
+                    //editarDadosMusica(btnEditar, pop) 
                 } else if (valorBtn == "popAddArtigo") {
                     //editarDa(btnEditar, pop)
                 } else {
@@ -171,6 +171,48 @@ function editarDadosMusica(btnEditar, popAdd) {
 }
 
 function limparDadosFormMusica(btnEditar, popAdd) {
+    let tituloCabecalhoForm = popAdd.children[0].children[0]
+    let categoriaForm = popAdd.children[1].children[1]
+    let precoForm = popAdd.children[1].children[3]
+    let descricaoForm = popAdd.children[1].children[7]
+    let idForm = popAdd.children[1].children[8]
+    let btnSubmitForm = popAdd.children[1].children[9].children[1]
+    
+    // Limpar os dados no formulário de produtos 
+    tituloCabecalhoForm.textContent = "Adicionar novo Serviço"
+    categoriaForm.appendChild = ""
+    precoForm.value = ""
+    descricaoForm.value = ""
+    idForm.value = ""
+    btnSubmitForm.textContent = "Adicionar"
+    btnSubmitForm.name = "btnSubmitAddServico"
+}
+
+function editarDadosArtigo(btnEditar, popAdd) {
+    let tituloCabecalhoForm = popAdd.children[0].children[0]
+    let categoriaForm = popAdd.children[1].children[1]
+    let precoForm = popAdd.children[1].children[3]
+    let descricaoForm = popAdd.children[1].children[7]
+    let idForm = popAdd.children[1].children[8]
+    let btnSubmitForm = popAdd.children[1].children[9].children[1]
+
+    let cardPai = btnEditar.parentElement.parentElement
+    let categoriaCard = cardPai.children[1].children[0].textContent
+    let precoCard = cardPai.children[1].children[2].children[0].textContent
+    let idCard = cardPai.children[2].textContent
+    let descricaoCard = cardPai.children[3].textContent
+    
+    // Colocando os dados no formulário de produtos 
+    tituloCabecalhoForm.textContent = "Actualizar dados do serviço"
+    categoriaForm.appendChild = categoriaCard
+    precoForm.value = precoCard
+    descricaoForm.value = descricaoCard
+    idForm.value = idCard
+    btnSubmitForm.textContent = "Actualizar"
+    btnSubmitForm.name = "btnSubmitActualizarServico"
+}
+
+function limparDadosFormArtigo(btnEditar, popAdd) {
     let tituloCabecalhoForm = popAdd.children[0].children[0]
     let categoriaForm = popAdd.children[1].children[1]
     let precoForm = popAdd.children[1].children[3]

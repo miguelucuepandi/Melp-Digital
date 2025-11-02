@@ -1,0 +1,1418 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Como Criar Identidade Visual Profissional - Melp-Digital</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* ================================
+           CSS VARIABLES
+        ================================ */
+        :root {
+            --cor1: #FF771D;
+            --cor2: #090F4B;
+            --cor3: #429867;
+            --cor4: #2b5166;
+            --cor5: #482344;
+            --font1: 'Poppins', sans-serif;
+            --bg-light: #ffffff;
+            --bg-dark: #0a0a0a;
+            --bg-muted: #f8f9fa;
+            --text-primary: #1a1a1a;
+            --text-secondary: #6c757d;
+            --border-color: #e0e0e0;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.12);
+            --shadow-lg: 0 8px 24px rgba(0,0,0,0.15);
+            --radius: 12px;
+            --transition: all 0.3s ease;
+        }
+
+        /* ================================
+           RESET & BASE
+        ================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font1);
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button {
+            font-family: var(--font1);
+            cursor: pointer;
+            border: none;
+            transition: var(--transition);
+        }
+
+        /* ================================
+           HEADER
+        ================================ */
+        .header {
+            background: var(--bg-dark);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header__container {
+            max-width: 1800px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header__logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--cor1);
+            letter-spacing: -0.5px;
+        }
+
+        .header__actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .header__btn {
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .header__btn--primary {
+            background: var(--cor1);
+            color: var(--bg-light);
+        }
+
+        .header__btn--primary:hover {
+            background: #e66a18;
+        }
+
+        .header__btn--icon {
+            width: 40px;
+            height: 40px;
+            padding: 0;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--bg-light);
+            font-size: 1.2rem;
+        }
+
+        .header__btn--icon:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* ================================
+           MAIN LAYOUT
+        ================================ */
+        .main-container {
+            max-width: 1800px;
+            margin: 0 auto;
+            padding: 1.5rem;
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 2rem;
+        }
+
+        /* ================================
+           VIDEO PLAYER SECTION
+        ================================ */
+        .video-section {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .video-player {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: var(--bg-dark);
+            border-radius: var(--radius);
+            overflow: hidden;
+            position: relative;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .video-player__placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .video-player__play {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .video-player__play:hover {
+            transform: scale(1.1);
+            background: var(--cor1);
+            color: var(--bg-light);
+        }
+
+        .video-info {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: var(--radius);
+            backdrop-filter: blur(10px);
+        }
+
+        .video-info__title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--bg-light);
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .video-info__meta {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .video-info__stat {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .video-info__actions {
+            display: flex;
+            gap: 1rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 1.5rem;
+        }
+
+        .video-action-btn {
+            padding: 0.7rem 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--bg-light);
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .video-action-btn:hover {
+            background: var(--cor1);
+        }
+
+        .video-action-btn.active {
+            background: var(--cor1);
+        }
+
+        .video-info__creator {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .creator__info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .creator__avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--cor1), var(--cor5));
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .creator__avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .creator__details {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+        }
+
+        .creator__name {
+            font-weight: 600;
+            color: var(--bg-light);
+            font-size: 1rem;
+        }
+
+        .creator__subscribers {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .btn-subscribe {
+            padding: 0.7rem 2rem;
+            background: var(--cor1);
+            color: var(--bg-light);
+            border-radius: 8px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .btn-subscribe:hover {
+            background: #e66a18;
+            transform: translateY(-2px);
+        }
+
+        .btn-subscribe.subscribed {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .video-description {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: var(--radius);
+            margin-top: 1.5rem;
+        }
+
+        .video-description__title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--bg-light);
+            margin-bottom: 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .video-description__content {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.8;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .video-description__content.expanded {
+            max-height: 500px;
+        }
+
+        .video-description__content p {
+            margin-bottom: 1rem;
+        }
+
+        /* ================================
+           PLAYLIST SIDEBAR
+        ================================ */
+        .playlist-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-height: calc(100vh - 100px);
+            overflow-y: auto;
+            padding-right: 0.5rem;
+        }
+
+        .playlist-sidebar::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .playlist-sidebar::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+        }
+
+        .playlist-sidebar::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+        }
+
+        .playlist-sidebar::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .playlist-header {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: var(--radius);
+            margin-bottom: 0.5rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .playlist-header__title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--bg-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .playlist-header__info {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .playlist-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: var(--radius);
+            overflow: hidden;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            gap: 1rem;
+            padding: 0.8rem;
+        }
+
+        .playlist-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(5px);
+        }
+
+        .playlist-item.active {
+            background: rgba(255, 119, 29, 0.2);
+            border: 2px solid var(--cor1);
+        }
+
+        .playlist-item__thumbnail {
+            width: 120px;
+            aspect-ratio: 16/9;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .playlist-item__thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .playlist-item__duration {
+            position: absolute;
+            bottom: 6px;
+            right: 6px;
+            background: rgba(0, 0, 0, 0.8);
+            color: var(--bg-light);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .playlist-item__play-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.5rem;
+            color: var(--bg-light);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .playlist-item:hover .playlist-item__play-icon {
+            opacity: 1;
+        }
+
+        .playlist-item__info {
+            flex: 1;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .playlist-item__title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--bg-light);
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .playlist-item__creator {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .playlist-item__stats {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* ================================
+           COMMENTS SECTION
+        ================================ */
+        .comments-section {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: var(--radius);
+            margin-top: 2rem;
+        }
+
+        .comments-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .comments-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--bg-light);
+        }
+
+        .comments-count {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .comment-form {
+            margin-bottom: 2rem;
+        }
+
+        .comment-form__input {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius);
+            padding: 1rem;
+            color: var(--bg-light);
+            font-family: var(--font1);
+            font-size: 1rem;
+            resize: vertical;
+            min-height: 100px;
+            transition: var(--transition);
+        }
+
+        .comment-form__input:focus {
+            outline: none;
+            border-color: var(--cor1);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .comment-form__actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .btn {
+            padding: 0.7rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .btn--primary {
+            background: var(--cor1);
+            color: var(--bg-light);
+        }
+
+        .btn--primary:hover {
+            background: #e66a18;
+        }
+
+        .btn--secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--bg-light);
+        }
+
+        .btn--secondary:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .comments-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .comment {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .comment__avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--cor3), #5ab87f);
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .comment__avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .comment__content {
+            flex: 1;
+        }
+
+        .comment__header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .comment__author {
+            font-weight: 600;
+            color: var(--bg-light);
+            font-size: 0.95rem;
+        }
+
+        .comment__date {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .comment__text {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+            margin-bottom: 0.8rem;
+        }
+
+        .comment__actions {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .comment__action {
+            background: none;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.85rem;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: var(--transition);
+        }
+
+        .comment__action:hover {
+            color: var(--cor1);
+        }
+
+        /* ================================
+           RESPONSIVE
+        ================================ */
+        @media (max-width: 1200px) {
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+
+            .playlist-sidebar {
+                max-height: 600px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .header {
+                padding: 1rem;
+            }
+
+            .main-container {
+                padding: 1rem;
+                gap: 1rem;
+            }
+
+            .video-info {
+                padding: 1.5rem;
+            }
+
+            .video-info__title {
+                font-size: 1.3rem;
+            }
+
+            .video-info__meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.8rem;
+            }
+
+            .video-info__actions {
+                flex-wrap: wrap;
+            }
+
+            .video-info__creator {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .playlist-item {
+                flex-direction: column;
+            }
+
+            .playlist-item__thumbnail {
+                width: 100%;
+            }
+
+            .comments-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ================================
+         HEADER
+    ================================ -->
+    <header class="header">
+        <div class="header__container">
+            <a href="#" class="header__logo">Melp-Digital</a>
+            <div class="header__actions">
+                <button class="header__btn header__btn--icon" title="Pesquisar">
+                    🔍
+                </button>
+                <button class="header__btn header__btn--primary">
+                    ➕ Upload
+                </button>
+                <button class="header__btn header__btn--icon" title="Notificações">
+                    🔔
+                </button>
+                <button class="header__btn header__btn--icon" title="Perfil">
+                    👤
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ================================
+         MAIN CONTENT
+    ================================ -->
+    <div class="main-container">
+        <!-- VIDEO SECTION -->
+        <div class="video-section">
+            <!-- Video Player -->
+            <div class="video-player">
+                <div class="video-player__placeholder">
+                    <div class="video-player__play" id="playBtn">▶</div>
+                </div>
+            </div>
+
+            <!-- Video Info -->
+            <div class="video-info">
+                <h1 class="video-info__title">Como Criar Identidade Visual Profissional do Zero</h1>
+
+                <div class="video-info__meta">
+                    <span class="video-info__stat">👁️ 125.5K visualizações</span>
+                    <span class="video-info__stat">📅 Há 2 dias</span>
+                    <span class="video-info__stat">⏱️ 15:24</span>
+                </div>
+
+                <div class="video-info__actions">
+                    <button class="video-action-btn" id="likeBtn">
+                        👍 2.3K
+                    </button>
+                    <button class="video-action-btn" id="dislikeBtn">
+                        👎
+                    </button>
+                    <button class="video-action-btn" id="shareBtn">
+                        📤 Partilhar
+                    </button>
+                    <button class="video-action-btn" id="saveBtn">
+                        💾 Guardar
+                    </button>
+                    <button class="video-action-btn">
+                        ⋮ Mais
+                    </button>
+                </div>
+
+                <div class="video-info__creator">
+                    <div class="creator__info">
+                        <div class="creator__avatar">
+                            <img src="https://via.placeholder.com/50/FF771D/ffffff?text=MU" alt="Miguel Ucuepandi">
+                        </div>
+                        <div class="creator__details">
+                            <div class="creator__name">Miguel Ucuepandi</div>
+                            <div class="creator__subscribers">2.8K subscritores</div>
+                        </div>
+                    </div>
+                    <button class="btn-subscribe" id="subscribeBtn">
+                        Subscrever
+                    </button>
+                </div>
+            </div>
+
+            <!-- Video Description -->
+            <div class="video-description">
+                <div class="video-description__title" id="descToggle">
+                    📝 Descrição
+                    <span id="descIcon">▼</span>
+                </div>
+                <div class="video-description__content" id="descContent">
+                    <p>
+                        Neste tutorial completo, você vai aprender passo a passo como criar uma identidade visual profissional para sua marca ou negócio. Desde a pesquisa inicial até a entrega final dos arquivos.
+                    </p>
+                    <p>
+                        <strong>📌 Tópicos abordados:</strong><br>
+                        • Pesquisa e briefing<br>
+                        • Criação de moodboard<br>
+                        • Desenvolvimento do logotipo<br>
+                        • Paleta de cores<br>
+                        • Tipografia<br>
+                        • Manual de identidade visual
+                    </p>
+                    <p>
+                        <strong>🔗 Links úteis:</strong><br>
+                        • Templates: exemplo.com/templates<br>
+                        • Recursos gratuitos: exemplo.com/recursos
+                    </p>
+                    <p>
+                        <strong>📧 Contacto:</strong> miguel@melpdigital.com
+                    </p>
+                </div>
+            </div>
+
+            <!-- Comments Section -->
+            <div class="comments-section">
+                <div class="comments-header">
+                    <h2 class="comments-title">
+                        Comentários
+                        <span class="comments-count">(145)</span>
+                    </h2>
+                </div>
+
+                <div class="comment-form">
+                    <textarea 
+                        class="comment-form__input" 
+                        placeholder="Adicione um comentário..."
+                        id="commentInput"
+                    ></textarea>
+                    <div class="comment-form__actions">
+                        <button class="btn btn--secondary" id="cancelCommentBtn">Cancelar</button>
+                        <button class="btn btn--primary" id="submitCommentBtn">Comentar</button>
+                    </div>
+                </div>
+
+                <div class="comments-list">
+                    <div class="comment">
+                        <div class="comment__avatar">
+                            <img src="https://via.placeholder.com/40/429867/ffffff?text=AC" alt="Ana Costa">
+                        </div>
+                        <div class="comment__content">
+                            <div class="comment__header">
+                                <span class="comment__author">Ana Costa</span>
+                                <span class="comment__date">Há 5 horas</span>
+                            </div>
+                            <p class="comment__text">
+                                Excelente tutorial! Muito bem explicado e com exemplos práticos. Já estou aplicando no meu projeto. Obrigada por compartilhar! 🙌
+                            </p>
+                            <div class="comment__actions">
+                                <button class="comment__action">👍 12</button>
+                                <button class="comment__action">👎</button>
+                                <button class="comment__action">💬 Responder</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="comment">
+                        <div class="comment__avatar">
+                            <img src="https://via.placeholder.com/40/2b5166/ffffff?text=PS" alt="Pedro Santos">
+                        </div>
+                        <div class="comment__content">
+                            <div class="comment__header">
+                                <span class="comment__author">Pedro Santos</span>
+                                <span class="comment__date">Há 1 dia</span>
+                            </div>
+                            <p class="comment__text">
+                                Conteúdo de qualidade! Quanto cobras para criar uma identidade visual completa?
+                            </p>
+                            <div class="comment__actions">
+                                <button class="comment__action">👍 8</button>
+                                <button class="comment__action">👎</button>
+                                <button class="comment__action">💬 Responder</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="comment">
+                        <div class="comment__avatar">
+                            <img src="https://via.placeholder.com/40/fa709a/ffffff?text=LF" alt="Luísa Fernandes">
+                        </div>
+                        <div class="comment__content">
+                            <div class="comment__header">
+                                <span class="comment__author">Luísa Fernandes</span>
+                                <span class="comment__date">Há 2 dias</span>
+                            </div>
+                            <p class="comment__text">
+                                Estava mesmo à procura de um tutorial assim! Subscrevi o canal. Continue com o ótimo trabalho! 👏
+                            </p>
+                            <div class="comment__actions">
+                                <button class="comment__action">👍 15</button>
+                                <button class="comment__action">👎</button>
+                                <button class="comment__action">💬 Responder</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PLAYLIST SIDEBAR -->
+        <aside class="playlist-sidebar">
+            <div class="playlist-header">
+                <h2 class="playlist-header__title">Próximos Vídeos</h2>
+                <p class="playlist-header__info">12 vídeos • Playlist: Design Profissional</p>
+            </div>
+
+            <!-- Active Video -->
+            <div class="playlist-item active" data-video-id="1">
+                <div class="playlist-item__thumbnail">
+                    <img src="https://via.placeholder.com/120x68/667eea/ffffff?text=Atual" alt="Video">
+                    <span class="playlist-item__duration">15:24</span>
+                    <span class="playlist-item__play-icon">▶</span>
+                </div>
+                <div class="playlist-item__info">
+                    <h3 class="playlist-item__title">Como Criar Identidade Visual Profissional do Zero</h3>
+                    <p class="playlist-item__creator">Miguel Ucuepandi</p>
+                    <div class="playlist-item__stats">
+                        <span>125K views</span>
+                        <span>•</span>
+                        <span>Há 2 dias</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Other Videos -->
+            <div class="playlist-item" data-video-id="2">
+                <div class="playlist-item__thumbnail">
+                    <img src="https://via.placeholder.com/120x68/764ba2/ffffff?text=Video+2" alt="Video">
+                    <span class="playlist-item__duration">12:15</span>
+                    <span class="playlist-item__play-icon">▶</span>
+                </div>
+                <div class="playlist-item__info">
+                    <h3 class="playlist-item__title">Paleta de Cores: Como Escolher as Cores Perfeitas</h3>
+                    <p class="playlist-item__creator">Miguel Ucuepandi</p>
+                    <div class="playlist-item__stats">
+                        <span>89K views</span>
+                        <span>•</span>
+                        <span>Há 5 dias</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="playlist-item" data-video-id="3">
+                <div class="playlist-item__thumbnail">
+                    <img src="https://via.placeholder.com/120x68/f093fb/ffffff?text=Video+3" alt="Video">
+                    <span class="playlist-item__duration">18:42</span>
+                    <span class="playlist-item__play-icon">▶</span>
+                </div>
+                <div class="playlist-item__info">
+                    <h3 class="playlist-item__title">Tipografia: Guia Completo para Designers</h3>
+                    <p class="playlist-item__creator">Miguel Ucuepandi</p>
+                    <div class="playlist-item__stats">
+                        <span>67K views</span>
+                        <span>•</span>
+                        <span>Há 1 semana</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="playlist-item" data-video-id="4">
+                <div class="playlist-item__thumbnail">
+                    <img src="https://via.placeholder.com/120x68/4facfe/ffffff?text=Video+4" alt="Video">
+                    <span class="playlist-item__duration">14:30</span>
+                    <span class="playlist-item__play-icon">▶</span>
+                </div>
+                <div class="playlist-item__info">
+                    <h3 class="playlist-item__title">Criando Logotipos Memoráveis: Processo Criativo</h3>
+                    <p class="playlist-item__creator">Miguel Ucuepandi</p>
+                    <div class="playlist-item__stats">
+                        <span>102K views</span>
+                        <span>•</span>
+                        <span>Há 2 semanas</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="playlist-item" data-video-id="5">
+                <div class="playlist-item__thumbnail">
+                    <img src="https://via.placeholder.com/120x68/fee140/ffffff?text=Video+5" alt="Video">
+                    <span class="playlist-item__duration">10:55</span>
+                    <span class="playlist-item__play-icon">▶</span>
+                </div>
+                <div class="playlist-item__info">
+                    <h3 class="playlist-item__title">Manual de Identidade Visual: O que Incluir</h3>
+                    <p class="playlist-item__creator">Miguel Ucuepandi</p>
+                    <div class="playlist-item__stats">
+                        <span>45K views</span>
+                        <span>•</span>
+                        <span>Há 3 semanas</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="playlist-item" data-video-id="6">
+                <div class="playlist-item__thumbnail">
+                    <img src="https://via.placeholder.com/120x68/30cfd0/ffffff?text=Video+6" alt="Video">
+                    <span class="playlist-item__duration">16:20</span>
+                    <span class="playlist-item__play-icon">▶</span>
+                </div>
+                <div class="playlist-item__info">
+                    <h3 class="playlist-item__title">Ferramentas Essenciais para Designers</h3>
+                    <p class="playlist-item__creator">Miguel Ucuepandi</p>
+                    <div class="playlist-item__stats">
+                        <span>134K views</span>
+                        <span>•</span>
+                        <span>Há 1 mês</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="playlist-item" data-video-id="7">
+                <div class="playlist-item__thumbnail">
+                    <img src="https://via.placeholder.com/120x68/667eea/ffffff?text=Video+7" alt="Video">
+                    <span class="playlist-item__duration">13:45</span>
+                    <span class="playlist-item__play-icon">▶</span>
+                </div>
+                <div class="playlist-item__info">
+                    <h3 class="playlist-item__title">Branding vs Identidade Visual: Entenda a Diferença</h3>
+                    <p class="playlist-item__creator">Miguel Ucuepandi</p>
+                    <div class="playlist-item__stats">
+                        <span>78K views</span>
+                        <span>•</span>
+                        <span>Há 1 mês</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="playlist-item" data-video-id="8">
+                <div class="playlist-item__thumbnail">
+                    <img src="https://via.placeholder.com/120x68/764ba2/ffffff?text=Video+8" alt="Video">
+                    <span class="playlist-item__duration">19:30</span>
+                    <span class="playlist-item__play-icon">▶</span>
+                </div>
+                <div class="playlist-item__info">
+                    <h3 class="playlist-item__title">Psicologia das Cores no Design</h3>
+                    <p class="playlist-item__creator">Miguel Ucuepandi</p>
+                    <div class="playlist-item__stats">
+                        <span>156K views</span>
+                        <span>•</span>
+                        <span>Há 1 mês</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="playlist-item" data-video-id="9">
+                <div class="playlist-item__thumbnail">
+                    <img src="https://via.placeholder.com/120x68/f093fb/ffffff?text=Video+9" alt="Video">
+                    <span class="playlist-item__duration">11:20</span>
+                    <span class="playlist-item__play-icon">▶</span>
+                </div>
+                <div class="playlist-item__info">
+                    <h3 class="playlist-item__title">Como Apresentar seu Projeto ao Cliente</h3>
+                    <p class="playlist-item__creator">Miguel Ucuepandi</p>
+                    <div class="playlist-item__stats">
+                        <span>92K views</span>
+                        <span>•</span>
+                        <span>Há 2 meses</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="playlist-item" data-video-id="10">
+                <div class="playlist-item__thumbnail">
+                    <img src="https://via.placeholder.com/120x68/4facfe/ffffff?text=Video+10" alt="Video">
+                    <span class="playlist-item__duration">15:10</span>
+                    <span class="playlist-item__play-icon">▶</span>
+                </div>
+                <div class="playlist-item__info">
+                    <h3 class="playlist-item__title">Quanto Cobrar por um Projeto de Design</h3>
+                    <p class="playlist-item__creator">Miguel Ucuepandi</p>
+                    <div class="playlist-item__stats">
+                        <span>189K views</span>
+                        <span>•</span>
+                        <span>Há 2 meses</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- ================================
+         JAVASCRIPT
+    ================================ -->
+    <script>
+        // ================================
+        // VIDEO DATA
+        // ================================
+        const videos = {
+            1: {
+                title: 'Como Criar Identidade Visual Profissional do Zero',
+                views: '125.5K',
+                likes: '2.3K',
+                date: 'Há 2 dias',
+                duration: '15:24',
+                description: 'Neste tutorial completo, você vai aprender passo a passo como criar uma identidade visual profissional para sua marca ou negócio. Desde a pesquisa inicial até a entrega final dos arquivos.'
+            },
+            2: {
+                title: 'Paleta de Cores: Como Escolher as Cores Perfeitas',
+                views: '89K',
+                likes: '1.8K',
+                date: 'Há 5 dias',
+                duration: '12:15',
+                description: 'Aprenda a criar paletas de cores harmoniosas e profissionais para seus projetos de design. Teoria das cores aplicada na prática.'
+            },
+            3: {
+                title: 'Tipografia: Guia Completo para Designers',
+                views: '67K',
+                likes: '1.5K',
+                date: 'Há 1 semana',
+                duration: '18:42',
+                description: 'Tudo sobre tipografia: como escolher, combinar e aplicar fontes nos seus projetos de design gráfico.'
+            },
+            4: {
+                title: 'Criando Logotipos Memoráveis: Processo Criativo',
+                views: '102K',
+                likes: '2.1K',
+                date: 'Há 2 semanas',
+                duration: '14:30',
+                description: 'Do briefing à entrega: veja o processo completo de criação de um logotipo profissional e memorável.'
+            },
+            5: {
+                title: 'Manual de Identidade Visual: O que Incluir',
+                views: '45K',
+                likes: '956',
+                date: 'Há 3 semanas',
+                duration: '10:55',
+                description: 'Aprenda a criar um manual de identidade visual completo e profissional para seus clientes.'
+            }
+        };
+
+        // ================================
+        // PLAYLIST ITEM CLICK
+        // ================================
+        const playlistItems = document.querySelectorAll('.playlist-item');
+        
+        playlistItems.forEach(item => {
+            item.addEventListener('click', function() {
+                const videoId = this.dataset.videoId;
+                
+                // Remove active class from all items
+                playlistItems.forEach(i => i.classList.remove('active'));
+                
+                // Add active class to clicked item
+                this.classList.add('active');
+                
+                // Update video info
+                updateVideoInfo(videoId);
+                
+                // Scroll to top
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                
+                // Show notification
+                showNotification('Reproduzindo novo vídeo');
+                
+                console.log(`Reproduzindo vídeo ID: ${videoId}`);
+            });
+        });
+
+        // ================================
+        // UPDATE VIDEO INFO
+        // ================================
+        function updateVideoInfo(videoId) {
+            const video = videos[videoId];
+            
+            if (video) {
+                document.querySelector('.video-info__title').textContent = video.title;
+                document.querySelector('.video-info__stat:nth-child(1)').innerHTML = `👁️ ${video.views} visualizações`;
+                document.querySelector('.video-info__stat:nth-child(2)').innerHTML = `📅 ${video.date}`;
+                document.querySelector('.video-info__stat:nth-child(3)').innerHTML = `⏱️ ${video.duration}`;
+                document.querySelector('#likeBtn').innerHTML = `👍 ${video.likes}`;
+                
+                // Update description
+                const descContent = document.querySelector('#descContent');
+                descContent.querySelector('p').textContent = video.description;
+            }
+        }
+
+        // ================================
+        // PLAY BUTTON
+        // ================================
+        const playBtn = document.getElementById('playBtn');
+        
+        playBtn.addEventListener('click', function() {
+            showNotification('Reproduzindo vídeo...');
+            console.log('Play button clicked');
+        });
+
+        // ================================
+        // ACTION BUTTONS
+        // ================================
+        const likeBtn = document.getElementById('likeBtn');
+        const dislikeBtn = document.getElementById('dislikeBtn');
+        const shareBtn = document.getElementById('shareBtn');
+        const saveBtn = document.getElementById('saveBtn');
+
+        likeBtn.addEventListener('click', function() {
+            this.classList.toggle('active');
+            showNotification(this.classList.contains('active') ? 'Adicionado aos gostos' : 'Removido dos gostos');
+        });
+
+        dislikeBtn.addEventListener('click', function() {
+            this.classList.toggle('active');
+            showNotification(this.classList.contains('active') ? 'Não gostei' : 'Removido');
+        });
+
+        shareBtn.addEventListener('click', function() {
+            showNotification('Opções de partilha');
+            console.log('Share options');
+        });
+
+        saveBtn.addEventListener('click', function() {
+            this.classList.toggle('active');
+            showNotification(this.classList.contains('active') ? 'Guardado na biblioteca' : 'Removido da biblioteca');
+        });
+
+        // ================================
+        // SUBSCRIBE BUTTON
+        // ================================
+        const subscribeBtn = document.getElementById('subscribeBtn');
+        
+        subscribeBtn.addEventListener('click', function() {
+            if (this.classList.contains('subscribed')) {
+                this.classList.remove('subscribed');
+                this.textContent = 'Subscrever';
+                showNotification('Subscrição cancelada');
+            } else {
+                this.classList.add('subscribed');
+                this.textContent = '✓ Subscrito';
+                showNotification('Subscrito com sucesso!');
+            }
+        });
+
+        // ================================
+        // DESCRIPTION TOGGLE
+        // ================================
+        const descToggle = document.getElementById('descToggle');
+        const descContent = document.getElementById('descContent');
+        const descIcon = document.getElementById('descIcon');
+
+        descToggle.addEventListener('click', function() {
+            descContent.classList.toggle('expanded');
+            descIcon.textContent = descContent.classList.contains('expanded') ? '▲' : '▼';
+        });
+
+        // ================================
+        // COMMENT FORM
+        // ================================
+        const commentInput = document.getElementById('commentInput');
+        const submitCommentBtn = document.getElementById('submitCommentBtn');
+        const cancelCommentBtn = document.getElementById('cancelCommentBtn');
+
+        submitCommentBtn.addEventListener('click', function() {
+            const commentText = commentInput.value.trim();
+            
+            if (commentText) {
+                showNotification('Comentário publicado com sucesso!');
+                console.log('Comentário:', commentText);
+                commentInput.value = '';
+            } else {
+                showNotification('Por favor, escreva um comentário');
+            }
+        });
+
+        cancelCommentBtn.addEventListener('click', function() {
+            commentInput.value = '';
+            commentInput.blur();
+        });
+
+        // ================================
+        // COMMENT ACTIONS
+        // ================================
+        document.querySelectorAll('.comment__action').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const action = this.textContent.trim();
+                console.log('Comment action:', action);
+                showNotification(action);
+            });
+        });
+
+        // ================================
+        // NOTIFICATION SYSTEM
+        // ================================
+        function showNotification(message) {
+            const existing = document.querySelector('.notification');
+            if (existing) existing.remove();
+
+            const notification = document.createElement('div');
+            notification.className = 'notification';
+            notification.style.cssText = `
+                position: fixed;
+                top: 80px;
+                right: 20px;
+                background: linear-gradient(135deg, #FF771D, #ff9a4d);
+                color: white;
+                padding: 1rem 1.5rem;
+                border-radius: 12px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+                z-index: 10000;
+                font-weight: 500;
+                animation: slideIn 0.3s ease;
+                max-width: 350px;
+            `;
+            notification.textContent = message;
+
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        }
+
+        // Add animation styles
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from { transform: translateX(400px); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+            @keyframes slideOut {
+                from { transform: translateX(0); opacity: 1; }
+                to { transform: translateX(400px); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // ================================
+        // KEYBOARD SHORTCUTS
+        // ================================
+        document.addEventListener('keydown', function(e) {
+            // Space bar to play/pause
+            if (e.code === 'Space' && e.target.tagName !== 'TEXTAREA') {
+                e.preventDefault();
+                playBtn.click();
+            }
+            
+            // L key to like
+            if (e.key === 'l' || e.key === 'L') {
+                likeBtn.click();
+            }
+            
+            // S key to save
+            if (e.key === 's' || e.key === 'S') {
+                saveBtn.click();
+            }
+        });
+
+        // ================================
+        // AUTO-SCROLL PLAYLIST
+        // ================================
+        const playlistSidebar = document.querySelector('.playlist-sidebar');
+        const activeItem = document.querySelector('.playlist-item.active');
+
+        if (activeItem && playlistSidebar) {
+            const scrollTop = activeItem.offsetTop - playlistSidebar.offsetTop - 100;
+            playlistSidebar.scrollTop = scrollTop;
+        }
+
+        // ================================
+        // CONSOLE LOG (QA)
+        // ================================
+        console.log('✅ Página de reprodução de vídeo carregada');
+        console.log('✅ Player de vídeo ativo');
+        console.log('✅ Playlist com 10 vídeos carregados');
+        console.log('✅ Sistema de comentários funcional');
+        console.log('✅ Atalhos de teclado: Space (play), L (like), S (save)');
+        console.log('🎬 Vídeo atual: ID 1');
+        console.log('📱 Layout responsivo ativo');
+
+        // ================================
+        // PERFORMANCE MONITORING
+        // ================================
+        window.addEventListener('load', () => {
+            const loadTime = performance.now();
+            console.log(`⚡ Página carregada em ${Math.round(loadTime)}ms`);
+            if (loadTime > 3000) console.warn('⚠️ Tempo de carregamento acima do ideal');
+        });
+
+        // ================================
+        // RESPONSIVE DETECTION
+        // ================================
+        function checkViewport() {
+            const width = window.innerWidth;
+            let device = width >= 1024 ? 'desktop' : width >= 768 ? 'tablet' : 'mobile';
+            console.log(`📱 Dispositivo: ${device} (${width}px)`);
+            return device;
+        }
+
+        checkViewport();
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(checkViewport, 250);
+        });
+
+        // ================================
+        // WELCOME MESSAGE
+        // ================================
+        setTimeout(() => {
+            showNotification('Bem-vindo ao player de vídeo! 🎬');
+        }, 1000);
+    </script>
+</body>
+</html>

@@ -13,7 +13,6 @@
 <body>
 
 <div class="siteTodo">
-    <a href="#top" id="btnSubir"><i class="bi bi-arrow-up-circle"></i></a>
     <header> 
       <nav> 
           <div id="logo"> 
@@ -46,110 +45,184 @@
           </div> 
       </nav> 
   </header> 
-<main>
-    <section id="top">
-        <div class="texto">
-            <h1>Aqui encontras as melhores noticias</h1>
-            <p>Esta é a página de noticias!</p>
-        </div>
-    </section>          
-    <section id="" class="destaque">
-        <div class="top">
-            <div>
-                <h1>Noticias em destaque</h1>
-                <p>Explore as principais noticias! </p>
-            </div>  
-        </div>
-        <div class="listaCard">
-            <div class="card card5">
-                <div class="imagem">
-                    <a href="./detalhes.html">
-                        <img src="../../assets/imagens/video/foto01.jpg" alt="Imagem" />
-                    </a>
-                    <div class="icone">
-                        <i class="bi-play-fill"></i>
-                    </div>
+    <main class="main-container">
+    <section class="hero">
+        <div class="hero__content">
+            <h1 class="hero__title">Explore Vídeos Incríveis</h1>
+            <p class="hero__subtitle">
+                Descubra conteúdo de qualidade criado por talentosos criadores da plataforma
+            </p>
+            <div class="hero__stats">
+                <div class="hero__stat">
+                    <span class="hero__stat-value">292992</span>
+                    <span class="hero__stat-label">Vídeos</span>
                 </div>
-                <div class="informacoes">
-                    <h2>PHP - Vantagens e desvantagens</h2>
-                    <p>Tecnologia e inovação</p>
+                <div class="hero__stat">
+                    <span class="hero__stat-value">850+</span>
+                    <span class="hero__stat-label">Criadores</span>
+                </div>
+                <div class="hero__stat">
+                    <span class="hero__stat-value">15+</span>
+                    <span class="hero__stat-label">Categorias</span>
                 </div>
             </div>
         </div>
     </section>
-    <section id="filtro">
-        <h2>Tipos de Produtos da Nossa Plataforma</h2>
-        <p>
-            Aqui você encontrará listada as variedades de produtos da nossa plataforma.
-        </p>
-        <aside class="botoes">
-            <button valor="todos" class="ativo">Todos</button>
-            <button valor="Tecnologia e inovação">Tecnologia e inovação</button>
-            <button valor="Desporto">Desporto</button>
-            <button valor="Cultura">Cultura</button>
-        </aside>
-        <aside class="itens listaCard">
-            <div class="item card card5" valor="Tecnologia e inovação">
-                <div class="imagem">
-                    <a href="./detalhes.html">
-                        <img src="../../assets/imagens/video/foto01.jpg" alt="Imagem" />
-                    </a>
-                    <div class="icone">
-                        <i class="bi-play-fill"></i>
+
+        <section>
+            <h2 class="section-title">
+                <span class="section-title__icon">🔥</span>
+                Vídeos em Destaque 
+            </h2>
+            <div class="videos-grid">
+                <div class="video-card">
+                    <div class="video-card__thumbnail">
+                        <a href="#"><img src="../../assets/imagens/video/foto01.jpg" alt="Video">
+                            <div class="video-card__play"><i class="bi-play-fill"></i></div>
+                            <span class="video-card__duration">12:45</span>
+                        </a>
+                    </div>
+                    <div class="video-card__content">
+                        <div class="video-card__header">
+                            <div href="./detalhes.html" class="video-card__avatar">
+                                <img src="../../assets/imagens/perfil/foto01.jpg" alt="Imagem de perfil">
+                            </div>
+                            <div class="video-card__info">
+                                <h3 class="video-card__title">Tutorial Completo de Design Gráfico para Iniciantes</h3>
+                                <a href="../../usuario/detalhes.html" class="video-card__creator">Miguel Ucuepandi</a>
+                            </div>
+                        </div>
+                        <div class="video-card__meta">
+                            <span class="video-card__meta-item"><i class="bi-calendar-date "></i> Há 2 dias</span>
+                        </div>
                     </div>
                 </div>
-                <div class="informacoes">
-                    <h2>PHP - Vantagens e desvantagens</h2>
-                    <p>Tecnologia e inovação</p>
-                </div>
-            </div>
-            <div class="item card card5" valor="Tecnologia e inovação">
-                <div class="imagem">
-                    <a href="./detalhes.html">
-                        <img src="../../assets/imagens/video/foto01.jpg" alt="Imagem" />
-                    </a>
-                    <div class="icone">
-                        <i class="bi-play-fill"></i>
+                <div class="video-card">
+                    <div class="video-card__thumbnail">
+                        <a href="#"><img src="../../assets/imagens/video/foto02.jpg" alt="Video">
+                            <div class="video-card__play"><i class="bi-play-fill"></i></div>
+                            <span class="video-card__duration">12:45</span>
+                        </a>
+                    </div>
+                    <div class="video-card__content">
+                        <div class="video-card__header">
+                            <div href="./detalhes.html" class="video-card__avatar">
+                                <img src="../../assets/imagens/perfil/foto01.jpg" alt="Imagem de perfil">
+                            </div>
+                            <div class="video-card__info">
+                                <h3 class="video-card__title">Tutorial Completo de Design Gráfico para Iniciantes</h3>
+                                <a href="../../usuario/detalhes.html" class="video-card__creator">Miguel Ucuepandi</a>
+                            </div>
+                        </div>
+                        <div class="video-card__meta">
+                            <span class="video-card__meta-item"><i class="bi-calendar-date "></i> Há 2 dias</span>
+                        </div>
                     </div>
                 </div>
-                <div class="informacoes">
-                    <h2>PHP - Vantagens e desvantagens</h2>
-                    <p>Tecnologia e inovação</p>
-                </div>
-            </div>
-            <div class="item card card5" valor="Desporto">
-                <div class="imagem">
-                    <a href="./detalhes.html">
-                        <img src="../../assets/imagens/video/foto01.jpg" alt="Imagem" />
-                    </a>
-                    <div class="icone">
-                        <i class="bi-play-fill"></i>
+                <div class="video-card">
+                    <div class="video-card__thumbnail">
+                        <a href="#"><img src="../../assets/imagens/video/foto01.jpg" alt="Video">
+                            <div class="video-card__play"><i class="bi-play-fill"></i></div>
+                            <span class="video-card__duration">12:45</span>
+                        </a>
+                    </div>
+                    <div class="video-card__content">
+                        <div class="video-card__header">
+                            <div href="./detalhes.html" class="video-card__avatar">
+                                <img src="../../assets/imagens/perfil/foto01.jpg" alt="Imagem de perfil">
+                            </div>
+                            <div class="video-card__info">
+                                <h3 class="video-card__title">Tutorial Completo de Design Gráfico para Iniciantes</h3>
+                                <a href="../../usuario/detalhes.html" class="video-card__creator">Miguel Ucuepandi</a>
+                            </div>
+                        </div>
+                        <div class="video-card__meta">
+                            <span class="video-card__meta-item"><i class="bi-calendar-date "></i> Há 2 dias</span>
+                        </div>
                     </div>
                 </div>
-                <div class="informacoes">
-                    <h2>PHP - Vantagens e desvantagens</h2>
-                    <p>Desporto</p>
-                </div>
             </div>
-            <div class="item card card5" valor="Cultura">
-                <div class="imagem">
-                    <a href="./detalhes.html">
-                        <img src="../../assets/imagens/video/foto01.jpg" alt="Imagem" />
+        </section>
+
+        <section id="filtro">
+            <h2>Tipos de Videos da Nossa Plataforma</h2>
+            <p>
+                Aqui você encontrará listada as variedades de videos da nossa plataforma.
+            </p>
+            <aside class="botoes">
+                <button valor="todos" class="ativo">Todos</button>
+                <button valor="Tecnologia e inovação">Tecnologia e inovação</button>
+                <button valor="Desporto">Desporto</button>
+                <button valor="Cultura">Cultura</button>
+            </aside>
+            <aside class="itens listaCard videos-grid">
+                <div class="item video-card" valor="Tecnologia e inovação">
+                    <a href="./detalhes.html" class="video-card__thumbnail">
+                        <img src="../../assets/imagens/video/foto01.jpg" alt="Imagem de capa do video">
+                        <div class="video-card__play"><i class="bi-play-fill "></i></div>
+                        <span class="video-card__duration">12:45</span>
                     </a>
-                    <div class="icone">
-                        <i class="bi-play-fill"></i>
+                    <div class="video-card__content">
+                        <div class="video-card__header">
+                            <div href="./detalhes.html" class="video-card__avatar">
+                                <img src="../../assets/imagens/perfil/foto01.jpg" alt="Imagem de perfil">
+                            </div>
+                            <div class="video-card__info">
+                                <h3 class="video-card__title">Tutorial Completo de Design Gráfico para Iniciantes</h3>
+                                <a href="../../usuario/detalhes.html" class="video-card__creator">Miguel Ucuepandi</a>
+                            </div>
+                        </div>
+                        <div class="video-card__meta">
+                            <span class="video-card__meta-item"><i class="bi-calendar-date " ></i> Há 2 dias</span>
+                        </div>
                     </div>
                 </div>
-                <div class="informacoes">
-                    <h2>PHP - Vantagens e desvantagens</h2>
-                    <p>Cultura</p>
+                <div class="item video-card" valor="Desporto">
+                    <a href="./detalhes.html" class="video-card__thumbnail">
+                        <img src="../../assets/imagens/video/foto01.jpg" alt="Imagem de capa do video">
+                        <div class="video-card__play"><i class="bi-play-fill "></i></div>
+                        <span class="video-card__duration">12:45</span>
+                    </a>
+                    <div class="video-card__content">
+                        <div class="video-card__header">
+                            <div href="./detalhes.html" class="video-card__avatar">
+                                <img src="../../assets/imagens/perfil/foto01.jpg" alt="Imagem de perfil">
+                            </div>
+                            <div class="video-card__info">
+                                <h3 class="video-card__title">Tutorial Completo de Design Gráfico para Iniciantes</h3>
+                                <a href="../../usuario/detalhes.html" class="video-card__creator">Miguel Ucuepandi</a>
+                            </div>
+                        </div>
+                        <div class="video-card__meta">
+                            <span class="video-card__meta-item"><i class="bi-calendar-date "></i> Há 2 dias</span>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </aside>
-    </section>
-</main>
-   
-  <footer> 
+                <div class="item video-card" valor="Cultura">
+                    <a href="./detalhes.html" class="video-card__thumbnail">
+                        <img src="../../assets/imagens/video/foto01.jpg" alt="Imagem de capa do video">
+                        <div class="video-card__play"><i class="bi-play-fill "></i></div>
+                        <span class="video-card__duration">12:45</span>
+                    </a>
+                    <div class="video-card__content">
+                        <div class="video-card__header">
+                            <div href="./detalhes.html" class="video-card__avatar">
+                                <img src="../../assets/imagens/perfil/foto01.jpg" alt="Imagem de perfil">
+                            </div>
+                            <div class="video-card__info">
+                                <h3 class="video-card__title">Tutorial Completo de Design Gráfico para Iniciantes</h3>
+                                <a href="../../usuario/detalhes.html" class="video-card__creator">Miguel Ucuepandi</a>
+                            </div>
+                        </div>
+                        <div class="video-card__meta">
+                            <span class="video-card__meta-item"><i class="bi-calendar-date "></i> Há 2 dias</span>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </section>
+    </main>
+    <footer> 
       <section id="self"> 
           <h2>Melp Digital</h2> 
           <div> 

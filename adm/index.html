@@ -1,0 +1,1669 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Administrador - Melp-Digital</title>
+    <style>
+        /* ========================================
+           VARIÁVEIS CSS - Melp-Digital
+        ======================================== */
+        :root {
+            --cor1: #FF771D;
+            --cor2: #090F4B;
+            --cor3: #429867;
+            --cor4: #2b5166;
+            --cor5: #482344;
+            --bg-light: #ffffff;
+            --bg-muted: #f8f9fa;
+            --text-primary: #1a1a1a;
+            --text-secondary: #6c757d;
+            --border-color: #e0e0e0;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.12);
+            --radius: 12px;
+            --transition: all 0.3s ease;
+            --font1: font1;
+        }
+
+        /* ========================================
+           RESET E BASE
+        ======================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-muted);
+            color: var(--text-primary);
+            overflow-x: hidden;
+        }
+
+        /* ========================================
+           LAYOUT PRINCIPAL
+        ======================================== */
+        .admin-container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* ========================================
+           SIDEBAR
+        ======================================== */
+        .sidebar {
+            width: 260px;
+            background-color: var(--cor2);
+            color: var(--bg-light);
+            position: fixed;
+            height: 100vh;
+            left: 0;
+            top: 0;
+            overflow-y: auto;
+            transition: var(--transition);
+            z-index: 1000;
+        }
+
+        .sidebar-header {
+            padding: 30px 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .sidebar-header h1 {
+            font-size: 24px;
+            color: var(--cor1);
+        }
+
+        .sidebar-menu {
+            list-style: none;
+            padding: 20px 0;
+        }
+
+        .sidebar-menu li {
+            margin: 5px 0;
+        }
+
+        .sidebar-menu a {
+            display: flex;
+            align-items: center;
+            padding: 12px 20px;
+            color: var(--bg-light);
+            text-decoration: none;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .sidebar-menu a:hover,
+        .sidebar-menu a.active {
+            background-color: var(--cor1);
+            border-left: 4px solid var(--cor3);
+        }
+
+        .sidebar-menu a .icon {
+            margin-right: 12px;
+            font-size: 20px;
+        }
+
+        /* ========================================
+           ÁREA PRINCIPAL
+        ======================================== */
+        .main-content {
+            flex: 1;
+            margin-left: 260px;
+            padding: 30px;
+            transition: var(--transition);
+        }
+
+        .top-bar {
+            background-color: var(--bg-light);
+            padding: 20px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 30px;
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 12px 20px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            font-size: 16px;
+            transition: var(--transition);
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--cor1);
+        }
+
+        /* ========================================
+           CONTEÚDO DAS PÁGINAS
+        ======================================== */
+        .page-content {
+            display: none;
+        }
+
+        .page-content.active {
+            display: block;
+        }
+
+        .page-title {
+            font-size: 28px;
+            color: var(--cor2);
+            margin-bottom: 30px;
+        }
+
+        /* ========================================
+           DASHBOARD - CARDS DE ESTATÍSTICAS
+        ======================================== */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background-color: var(--bg-light);
+            padding: 25px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .stat-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .stat-card-title {
+            font-size: 14px;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .stat-card-icon {
+            font-size: 30px;
+        }
+
+        .stat-card-number {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--cor2);
+        }
+
+        /* ========================================
+           GRID DE CARDS (LISTAGENS)
+        ======================================== */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .item-card {
+            background-color: var(--bg-light);
+            border-radius: var(--radius);
+            padding: 20px;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .item-card:hover {
+            box-shadow: var(--shadow-md);
+        }
+
+        .item-card-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--cor2);
+            margin-bottom: 10px;
+        }
+
+        .item-card-desc {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .item-card-meta {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+        }
+
+        .item-card-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: var(--radius);
+            cursor: pointer;
+            font-size: 14px;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .btn-primary {
+            background-color: var(--cor1);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #e66a19;
+        }
+
+        .btn-danger {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background-color: #c82333;
+        }
+
+        .btn-secondary {
+            background-color: var(--text-secondary);
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+        }
+
+        /* ========================================
+           TABELA DE USUÁRIOS
+        ======================================== */
+        .users-table {
+            background-color: var(--bg-light);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .users-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .users-table th,
+        .users-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .users-table th {
+            background-color: var(--bg-muted);
+            color: var(--cor2);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        .users-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .user-role {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .role-admin {
+            background-color: var(--cor1);
+            color: white;
+        }
+
+        .role-user {
+            background-color: var(--cor3);
+            color: white;
+        }
+
+        /* ========================================
+           MODAL
+        ======================================== */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal.active {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: var(--bg-light);
+            border-radius: var(--radius);
+            padding: 30px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: var(--shadow-md);
+            animation: slideUp 0.3s ease;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .modal-title {
+            font-size: 24px;
+            color: var(--cor2);
+            font-weight: 700;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 28px;
+            cursor: pointer;
+            color: var(--text-secondary);
+            transition: var(--transition);
+        }
+
+        .modal-close:hover {
+            color: var(--text-primary);
+        }
+
+        .modal-body {
+            margin-bottom: 20px;
+        }
+
+        .modal-section {
+            margin-bottom: 15px;
+        }
+
+        .modal-section-title {
+            font-weight: 600;
+            color: var(--cor2);
+            margin-bottom: 5px;
+        }
+
+        .modal-section-content {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* ========================================
+           ALERTAS
+        ======================================== */
+        .alert {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 20px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-md);
+            z-index: 3000;
+            animation: slideInRight 0.3s ease;
+            min-width: 300px;
+        }
+
+        .alert-success {
+            background-color: var(--cor3);
+            color: white;
+        }
+
+        .alert-danger {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        .alert-info {
+            background-color: var(--cor4);
+            color: white;
+        }
+
+        /* ========================================
+           LOADING SPINNER
+        ======================================== */
+        .spinner {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2500;
+        }
+
+        .spinner.active {
+            display: block;
+        }
+
+        .spinner-circle {
+            width: 50px;
+            height: 50px;
+            border: 4px solid var(--bg-muted);
+            border-top-color: var(--cor1);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        /* ========================================
+           RODAPÉ
+        ======================================== */
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin-top: 50px;
+        }
+
+        /* ========================================
+           ANIMAÇÕES
+        ======================================== */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* ========================================
+           RESPONSIVO
+        ======================================== */
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
+
+            .sidebar.mobile-open {
+                transform: translateX(0);
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ========================================
+         ESTRUTURA PRINCIPAL
+    ======================================== -->
+    <div class="admin-container">
+        <!-- SIDEBAR -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h1>Melp-Digital</h1>
+            </div>
+            <ul class="sidebar-menu">
+                <li><a href="#" data-page="dashboard" class="active"><span class="icon">📊</span> Dashboard</a></li>
+                <li><a href="#" data-page="produtos"><span class="icon">🛍️</span> Produtos</a></li>
+                <li><a href="#" data-page="servicos"><span class="icon">⚙️</span> Serviços</a></li>
+                <li><a href="#" data-page="parcerias"><span class="icon">🤝</span> Parcerias</a></li>
+                <li><a href="#" data-page="musica"><span class="icon">🎵</span> Música</a></li>
+                <li><a href="#" data-page="artigos"><span class="icon">📝</span> Artigos</a></li>
+                <li><a href="#" data-page="noticias"><span class="icon">📰</span> Notícias</a></li>
+                <li><a href="#" data-page="videos"><span class="icon">🎬</span> Vídeos</a></li>
+                <li><a href="#" data-page="usuarios"><span class="icon">👥</span> Usuários</a></li>
+                <li><a href="#" data-page="logout"><span class="icon">🚪</span> Sair</a></li>
+            </ul>
+        </aside>
+
+        <!-- CONTEÚDO PRINCIPAL -->
+        <main class="main-content">
+            <!-- BARRA DE PESQUISA -->
+            <div class="top-bar">
+                <div class="search-container">
+                    <input type="text" id="searchInput" class="search-input" placeholder="Pesquisar...">
+                </div>
+            </div>
+
+            <!-- PÁGINA: DASHBOARD -->
+            <div id="page-dashboard" class="page-content active">
+                <h2 class="page-title">Dashboard</h2>
+                <div class="stats-grid">
+                    <div class="stat-card" data-category="produtos">
+                        <div class="stat-card-header">
+                            <span class="stat-card-title">Produtos</span>
+                            <span class="stat-card-icon">🛍️</span>
+                        </div>
+                        <div class="stat-card-number" id="stat-produtos">0</div>
+                    </div>
+                    <div class="stat-card" data-category="servicos">
+                        <div class="stat-card-header">
+                            <span class="stat-card-title">Serviços</span>
+                            <span class="stat-card-icon">⚙️</span>
+                        </div>
+                        <div class="stat-card-number" id="stat-servicos">0</div>
+                    </div>
+                    <div class="stat-card" data-category="parcerias">
+                        <div class="stat-card-header">
+                            <span class="stat-card-title">Parcerias</span>
+                            <span class="stat-card-icon">🤝</span>
+                        </div>
+                        <div class="stat-card-number" id="stat-parcerias">0</div>
+                    </div>
+                    <div class="stat-card" data-category="musica">
+                        <div class="stat-card-header">
+                            <span class="stat-card-title">Música</span>
+                            <span class="stat-card-icon">🎵</span>
+                        </div>
+                        <div class="stat-card-number" id="stat-musica">0</div>
+                    </div>
+                    <div class="stat-card" data-category="artigos">
+                        <div class="stat-card-header">
+                            <span class="stat-card-title">Artigos</span>
+                            <span class="stat-card-icon">📝</span>
+                        </div>
+                        <div class="stat-card-number" id="stat-artigos">0</div>
+                    </div>
+                    <div class="stat-card" data-category="noticias">
+                        <div class="stat-card-header">
+                            <span class="stat-card-title">Notícias</span>
+                            <span class="stat-card-icon">📰</span>
+                        </div>
+                        <div class="stat-card-number" id="stat-noticias">0</div>
+                    </div>
+                    <div class="stat-card" data-category="videos">
+                        <div class="stat-card-header">
+                            <span class="stat-card-title">Vídeos</span>
+                            <span class="stat-card-icon">🎬</span>
+                        </div>
+                        <div class="stat-card-number" id="stat-videos">0</div>
+                    </div>
+                    <div class="stat-card" data-category="usuarios">
+                        <div class="stat-card-header">
+                            <span class="stat-card-title">Usuários</span>
+                            <span class="stat-card-icon">👥</span>
+                        </div>
+                        <div class="stat-card-number" id="stat-usuarios">0</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PÁGINA: PRODUTOS -->
+            <div id="page-produtos" class="page-content">
+                <h2 class="page-title">Produtos</h2>
+                <div class="cards-grid" id="produtos-grid">
+                    <div class="item-card" data-id="prod1">
+                        <h3 class="item-card-title">Smartphone Pro X</h3>
+                        <p class="item-card-desc">Dispositivo de última geração com câmera de 108MP e processador octa-core.</p>
+                        <div class="item-card-meta">Criado em: 15/10/2025 | Status: Ativo</div>
+                        <div class="item-card-actions">
+                            <button class="btn btn-primary btn-details">Ver Detalhes</button>
+                            <button class="btn btn-danger btn-remove">Remover</button>
+                        </div>
+                    </div>
+                    <div class="item-card" data-id="prod2">
+                        <h3 class="item-card-title">Laptop UltraBook</h3>
+                        <p class="item-card-desc">Notebook leve e potente, ideal para trabalho e entretenimento.</p>
+                        <div class="item-card-meta">Criado em: 12/10/2025 | Status: Ativo</div>
+                        <div class="item-card-actions">
+                            <button class="btn btn-primary btn-details">Ver Detalhes</button>
+                            <button class="btn btn-danger btn-remove">Remover</button>
+                        </div>
+                    </div>
+                    <div class="item-card" data-id="prod3">
+                        <h3 class="item-card-title">Fones Wireless Pro</h3>
+                        <p class="item-card-desc">Fones de ouvido sem fio com cancelamento de ruído ativo.</p>
+                        <div class="item-card-meta">Criado em: 08/10/2025 | Status: Ativo</div>
+                        <div class="item-card-actions">
+                            <button class="btn btn-primary btn-details">Ver Detalhes</button>
+                            <button class="btn btn-danger btn-remove">Remover</button>
+                        </div>
+                    </div>
+                    <div class="item-card" data-id="prod4">
+                        <h3 class="item-card-title">Smartwatch Elite</h3>
+                        <p class="item-card-desc">Relógio inteligente com monitoramento de saúde 24/7.</p>
+                        <div class="item-card-meta">Criado em: 05/10/2025 | Status: Ativo</div>
+                        <div class="item-card-actions">
+                            <button class="btn btn-primary btn-details">Ver Detalhes</button>
+                            <button class="btn btn-danger btn-remove">Remover</button>
+                        </div>
+                    </div>
+                    <div class="item-card" data-id="prod5">
+                        <h3 class="item-card-title">Tablet Graphics Pro</h3>
+                        <p class="item-card-desc">Tablet profissional para designers e artistas digitais.</p>
+                        <div class="item-card-meta">Criado em: 01/10/2025 | Status: Ativo</div>
+                        <div class="item-card-actions">
+                            <button class="btn btn-primary btn-details">Ver Detalhes</button>
+                            <button class="btn btn-danger btn-remove">Remover</button>
+                        </div>
+                    </div>
+                    <div class="item-card" data-id="prod6">
+                        <h3 class="item-card-title">Câmera Digital 4K</h3>
+                        <p class="item-card-desc">Câmera profissional com gravação em 4K a 60fps.</p>
+                        <div class="item-card-meta">Criado em: 28/09/2025 | Status: Ativo</div>
+                        <div class="item-card-actions">
+                            <button class="btn btn-primary btn-details">Ver Detalhes</button>
+                            <button class="btn btn-danger btn-remove">Remover</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PÁGINA: SERVIÇOS -->
+            <div id="page-servicos" class="page-content">
+                <h2 class="page-title">Serviços</h2>
+                <div class="cards-grid" id="servicos-grid">
+                    <div class="item-card" data-id="serv1">
+                        <h3 class="item-card-title">Desenvolvimento Web</h3>
+                        <p class="item-card-desc">Criação de websites modernos e responsivos com as melhores tecnologias.</p>
+                        <div class="item-card-meta">Criado em: 20/10/2025 | Status: Ativo</div>
+                        <div class="item-card-actions">
+                            <button class="btn btn-primary btn-details">Ver Detalhes</button>
+                            <button class="btn btn-danger btn-remove">Remover</button>
+                        </div>
+                    </div>
+                    <div class="item-card" data-id="serv2">
+                        <h3 class="item-card-title">Marketing Digital</h3>
+                        <p class="item-card-desc">Estratégias completas de marketing para impulsionar seu negócio online.</p>
+                        <div class="item-card-meta">Criado em: 18/10/2025 | Status: Ativo</div>
+                        <div class="item-card-actions">
+                            <button class="btn btn-primary btn-details">Ver Detalhes</button>
+                            <button class="btn btn-danger btn-remove">Remover</button>
+                        </div>
+                    </div>
+                    <div class="item-card" data-id="serv3">
+                        <h3 class="item-card-title">Design Gráfico</h3>
+                        <p class="item-card-desc">Criação de identidade visual, logos e materiais gráficos profissionais.</p>
+                        <div class="item-card-meta">Criado em: 15/10/2025 | Status: Ativo</div>
+                        <div class="item-card-actions">
+                            <button class="btn btn-primary btn-details">Ver Detalhes</button>
+                            <button class="btn btn-danger btn-remove">Remover</button>
+                        </div>
+                    </div>
+                    <div class="item-card" data-id="serv4">
+                        <h3 class="item-card-title">Consultoria de TI</h3>
+                        <p class="item-card-desc">Consultoria especializada em infraestrutura e segurança de TI.</p>
+                        <div class="item-card-meta">Criado em: 10/10/2025 | Status: Ativo</div>
+                        <div class="item-card-actions">
+                            <button class="btn btn-primary btn-details">Ver Detalhes</button>
+                            <button class="btn btn-danger btn-remove">Remover</button>
+                        </div>
+                    </div>
+                    <div class="item-card" data-id="serv5">
+                        <h3 class="item-card-title">SEO e Analytics</h3>
+                        <p class="item-card-desc">Otimização para mecanismos de busca e análise de dados estratégicos.</p>
+                        <div class="item-card-meta">Criado em: 05/10/2025 | Status: Ativo</div>
+                        <div class="item-card-actions">
+                            <button class="btn btn-primary btn-details">Ver Detalhes</button>
+                            <button class="btn btn-danger btn-remove">Remover</button>
+                        </div>
+                    </div>
+                    <div class="item-card" data-id="serv6">
+                        <h3 class="item-card-title">Cloud Computing</h3>
+                        <p class="item-card-desc">Soluções em nuvem para escalabilidade e eficiência empresarial.</p>
+                        <div class="item-card-meta">Criado em: 01/10/2025 | Status: Ativo</div>
+                        <div class="item-card-actions">
+                            <button class="btn btn-primary btn-details">Ver Detalhes</button>
+                            <button class="btn btn-danger btn-remove">Remover</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PÁGINA: PARCERIAS -->
+            <div id="page-parcerias" class="page-content">
+                <h2 class="page-title">Parcerias</h2>
+                <div class="cards-grid" id="parcerias-grid">
+                    <div class="item-card" data-id="parc1">
+                        <h3 class="item-card-title">Tech Solutions Inc</h3>
+                        <p class="item-card-desc">Parceria estratégica em desenvolvimento de software empresarial.</p>
+                        <div class="item-card-meta">Criado em: 22/10/2025 | Status: Ativo</div>
+                        <div class="item-card-actions">
+                            <button class="btn btn-primary btn-details">Ver Detalhes</button>
+                            <button class="btn btn-danger btn-remove">Remover</button>
+                        </div>
+                    </div>
+                    <div class="item-card" data-id="parc2">
+                        <h3 class="item-card-title">Global Media Group</h3>
+                        <p class="item-card-desc">Colaboração em projetos de mídia digital e conteúdo audiovisual.</p>
+                        <div class="item-card-meta">Criado em: 19/10/2025 | Status: Ativo</div>
+                        <div class="item-card-actions">
+                            <button class="btn btn-primary btn-details">Ver Detalhes</button>
+                            <button class="btn btn-danger btn-remove">Remover</button>
+                        </div>
+                    </div>
+                    <div class="item-card" data-id="parc3">
+                        <h3 class="item-card-title">Creative Studios</h3>
+                        <p class="item-card-desc">Parceria em design criativo e produção de campanhas publicitárias.</p>
+                        <div class="item-card-meta">Criado em: 14/10/2025 | Status: Ativo</div>
+                        <div class="item-card-actions">
+                            <button class="btn btn-primary btn-details">Ver Detalhes</button>
+                            <button class="btn btn-danger btn-remove">Remover</button>
+                        </div>
+                    </div>
+                    <div class="item-card" data-id="parc4">
+                        <h3 class="item-card-title">Innovation Hub</h3>
+                        <p class="item-card-desc">Colaboração em projetos de inovação e transformação digital.</p>
+                        <div class="item-card-meta">Criado em: 09/10/2025 | Status: Ativo</div>
+                        <div class="item-card-actions">
+                            <button class="btn btn-primary btn-details">Ver Detalhes</button>
+                            <button class="btn btn-danger btn-remove">Remover</button>
+                        </div>
+                    </div>
+                    <div class="item-card" data-id="parc5">
+                        <h3 class="item-card-title">Digital Marketing Pro</h3>
+                        <p class="item-card-desc">Parceria estratégica em marketing digital e gestão de redes sociais.</p>
+                        <div class="item-card-meta">Criado em: 03/10/2025 | Status: Ativo</div>
+                        <div class="item-card-actions">
+                            <button class="btn btn-primary btn-details">Ver Detalhes</button>
+                            <button class="btn btn-danger btn-remove">Remover</button>
+                        </div>
+                    </div>
+                    <div class="item-card" data-id="parc6">
+                        <h3 class="item-card-title">CloudTech Partners</h3>
+                        <p class="item-card-desc">Aliança em soluções de infraestrutura em nuvem e segurança.</p>
+                        <div class="item-card-meta">Criado em: 27/09/2025 | Status: Ativo</div>
+                        <div class="item-card-actions">
+                            <button class="btn btn-primary btn-details">Ver Detalhes</button>
+                            <button class="btn btn-danger btn-remove">Remover</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PÁGINA: MÚSICA -->
+            <div id="page-musica" class="page-content">
+                <h2 class="page-title">Música</h2>
+                <div class="cards-grid" id="musica-grid">
+                    <div class="item-card" data-id="mus1">
+                        <h3 class="item-card-title">Noites de Luanda</h3>
+                        <p class="item-card-desc">Álbum de kizomba contemporânea com influências tradicionais angolanas.</p>
+                        <div class="item-card-meta">Criado em: 25/10/2025 | Artista: Carlos Burity</div>
+                        <div class="item-card-actions">
+                            <button class="btn btn-primary btn-details">Ver Detalhes</button>
+                            <button class="btn btn-danger btn-remove">Remover</button>
+                        </div>
+                    </div>
+                    <div class="item-card" data-id="mus2">
+                        <h3 class="item-card-title">Semba Fusion</h3>
+                        <p class="item-card-desc">Mistura moderna de semba com elementos de jazz e soul.</p>
+                        <div class="item-card-meta">Criado em: 20/10/2025 | Artista: Ana Silva</div>
+                        <div class="item-card-actions">
+                            <button class="btn btn-primary btn-details">Ver Detalhes</button>
+                            <button class="btn btn-danger btn-remove">Remover</button>
+                        </div>
+                    </div>
+                    <div class="item-card" data-id="mus3">
+                        <h3 class="item-card-title">Afrobeat Nights</h3>
+                        <p class="item-card-desc">Coletânea de afrobeat com artistas emergentes africanos.</p>
+                        <div class="item-card-meta">Criado em: 15/10/2025 | Artista: Vários</div>
+                        <div class="item-card-actions">
+                            <button class="btn btn-primary btn-details">Ver Detalhes</button>
+                            <button class="btn btn-danger btn-remove">Remover</button>
+                        </div>
+                    </div>
+                    <div class="item-card" data-id="mus4">
+                        <h3 class="item-card-title">Kuduro Revolution</h3>
+                        <p class="item-card-desc">O melhor do kuduro com batidas energéticas e letras marcantes.</p>
+                        <div class="item-card-meta">Criado em: 10/10/2025 | Artista: DJ Mário</div>
+                        <div class="item-card-actions">
+                            <button class="btn btn-primary btn-details">Ver Detalhes</button>
+                            <button class="btn btn-danger btn-remove">Remover</button>
+                        </div>
+                    </div>
+                    <div class="item-card" data-id="mus5">
+                        <h3 class="item-card-title">Acoustic Sessions</h3>
+                        <p class="item-card-desc">Sessões acústicas intimistas com grandes vozes nacionais.</p>
+                        <div class="item-card-meta">Criado em: 05/10/2025 | Artista: Pedro Santos</div>
+                        <div class="item-card-actions">
+                            <button class="btn btn-primary btn-details">Ver Detalhes</button>
+                            <button class="btn btn-danger btn-remove">Remover</button>
+                        </div>
+                    </div>
+                    <div class="item-card" data-id="mus6">
+                        <h3 class="item-card-title">Hip Hop Angolano</h3>
+                        <p class="item-card-desc">O melhor do rap e hip hop produzido em Angola.</p>
+                        <div class="item-card-meta">Criado em: 30/09/2025 | Artista: MC Flow</div>
+                        <div class="item-card-actions">
+                            <button class="btn btn-primary btn-details">Ver Detalhes</button>
+                            <button class="btn btn-danger btn-remove">Remover</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PÁGINA: ARTIGOS -->
+            <div id="page-artigos" class="page-content">
+                <h2 class="page-title">Artigos</h2>
+                <div class="cards-grid" id="artigos-grid">
+                    <div class="item-card" data-id="art1">
+                        <h3 class="item-card-title">O Futuro da Inteligência Artificial</h3>
+                        <p class="item-card-desc">Análise profunda sobre as tendências e impactos da IA na sociedade moderna.</p>
+                        <div class="item-card-meta">Criado em: 28/10/2025 | Autor: Dr. João Fernandes</div>
+                        <div class="item-card-actions">
+                            <button class="btn btn-primary btn-details">Ver Detalhes</button>
+                            <button class="btn btn-danger btn-remove">Remover</button>
+                        </div>
+                    </div>
+                    <div class="item-card" data-id="art2">
+                        <h3 class="item-card-title">Transformação Digital em África</h3>
+                        <p class="item-card-desc">Como a tecnologia está moldando o futuro do continente africano.</p>
+                        <div class="item-card-meta">Criado em: 24/10/2025 | Autor: Maria Costa</div>
+                        <div class="item-card-actions">
+                            <button class="btn btn-primary btn-details">Ver Detalhes</button>
+                            <button class="btn btn-danger btn-remove">Remover</button>
+                        </div>
+                    </div>
+                    <div class="item-card" data-id="art3">
+                        <h3 class="item-card-title">Sustentabilidade e Tecnologia</h3>
+                        <p class="item-card-desc">A interseção entre inovação tecnológica e práticas sustentáveis.</p>
+                        <div class="item-card-meta">Criado em: 19/10/2025 | Autor: Paulo Mendes</div>
+                        <div class="item-card-actions">
+                            <button class="btn btn-primary btn-details">Ver Detalhes</button>
+                            <button class="btn btn-danger btn-remove">Remover</button>
+                        </div>
+                    </div>
+                    <div class="item-card" data-id="art4">
+                        <h3 class="item-card-title">Cibersegurança em 2025</h3>
+                        <p class="item-card-desc">Desafios e soluções para proteção de dados no mundo digital.</p>
+                        <div class="item-card-meta">Criado em: 13/10/2025 | Autor: Ana Rodrigues</div>
+                        <div class="item-card-actions">
+                            <button class="btn btn-primary btn-details">Ver Detalhes</button>
+                            <button class="btn btn-danger btn-remove">Remover</button>
+                        </div>
+                    </div>
+                    <div class="item-card" data-id="art5">
+                        <h3 class="item-card-title">Empreendedorismo Digital</h3>
+                        <p class="item-card-desc">Guia completo para iniciar seu negócio online com sucesso.</p>
+                        <div class="item-card-meta">Criado em: 07/10/2025 | Autor: Ricardo Silva</div>
+                        <div class="item-card-actions">
+                            <button class="btn btn-primary btn-details">Ver Detalhes</button>
+                            <button class="btn btn-danger btn-remove">Remover</button>
+                        </div>
+                    </div>
+                    <div class="item-card" data-id="art6">
+                        <h3 class="item-card-title">Blockchain e Criptomoedas</h3>
+                        <p class="item-card-desc">Entendendo a tecnologia por trás das moedas digitais.</p>
+                        <div class="item-card-meta">Criado em: 02/10/2025 | Autor: Carlos Alberto</div>
+                        <div class="item-card-actions">
+                            <button class="btn btn-primary btn-details">Ver Detalhes</button>
+                            <button class="btn btn-danger btn-remove">Remover</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PÁGINA: NOTÍCIAS -->
+            <div id="page-noticias" class="page-content">
+                <h2 class="page-title">Notícias</h2>
+                <div class="cards-grid" id="noticias-grid">
+                    <div class="item-card" data-id="not1">
+                        <h3 class="item-card-title">Nova Startup Angolana Recebe Investimento</h3>
+                        <p class="item-card-desc">Empresa de tecnologia capta 2 milhões de dólares para expansão.</p>
+                        <div class="item-card-meta">Criado em: 01/11/2025 | Categoria: Negócios</div>
+                        <div class="item-card-actions">
+                            <button class="btn btn-primary btn-details">Ver Detalhes</button>
+                            <button class="btn btn-danger btn-remove">Remover</button>
+                        </div>
+                    </div>
+                    <div class="item-card" data-id="not2">
+                        <h3 class="item-card-title">Festival de Música Reúne Milhares</h3>
+                        <p class="item-card-desc">Evento cultural atrai público recorde em Luanda neste fim de semana.</p>
+                        <div class="item-card-meta">Criado em: 30/10/2025 | Categoria: Cultura</div>
+                        <div class="item-card-actions">
+                            <button class="btn btn-primary btn-details">Ver Detalhes</button>
+                            <button class="btn btn-danger btn-remove">Remover</button>
+                        </div>
+                    </div>
+                    <div class="item-card" data-id="not3">
+                        <h3 class="item-card-title">Inovação em Energias Renováveis</h3>
+                        <p class="item-card-desc">Projeto piloto de energia solar beneficia comunidades rurais.</p>
+                        <div class="item-card-meta">Criado em: 27/10/2025 | Categoria: Tecnologia</div>
+                        <div class="item-card-actions">
+                            <button class="btn btn-primary btn-details">Ver Detalhes</button>
+                            <button class="btn btn-danger btn-remove">Remover</button>
+                        </div>
+                    </div>
+                    <div class="item-card" data-id="not4">
+                        <h3 class="item-card-title">Educação Digital Avança no País</h3>
+                        <p class="item-card-desc">Ministério lança plataforma de ensino online para estudantes.</p>
+                        <div class="item-card-meta">Criado em: 23/10/2025 | Categoria: Educação</div>
+                        <div class="item-card-actions">
+                            <button class="btn btn-primary btn-details">Ver Detalhes</button>
+                            <button class="btn btn-danger btn-remove">Remover</button>
+                        </div>
+                    </div>
+                    <div class="item-card" data-id="not5">
+                        <h3 class="item-card-title">Mercado de TI Cresce 40%</h3>
+                        <p class="item-card-desc">Setor tecnológico apresenta crescimento expressivo no último trimestre.</p>
+                        <div class="item-card-meta">Criado em: 18/10/2025 | Categoria: Economia</div>
+                        <div class="item-card-actions">
+                            <button class="btn btn-primary btn-details">Ver Detalhes</button>
+                            <button class="btn btn-danger btn-remove">Remover</button>
+                        </div>
+                    </div>
+                    <div class="item-card" data-id="not6">
+                        <h3 class="item-card-title">Hackathon Nacional Premia Jovens</h3>
+                        <p class="item-card-desc">Competição de programação revela novos talentos em tecnologia.</p>
+                        <div class="item-card-meta">Criado em: 12/10/2025 | Categoria: Tecnologia</div>
+                        <div class="item-card-actions">
+                            <button class="btn btn-primary btn-details">Ver Detalhes</button>
+                            <button class="btn btn-danger btn-remove">Remover</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PÁGINA: VÍDEOS -->
+            <div id="page-videos" class="page-content">
+                <h2 class="page-title">Vídeos</h2>
+                <div class="cards-grid" id="videos-grid">
+                    <div class="item-card" data-id="vid1">
+                        <h3 class="item-card-title">Tutorial: Desenvolvimento Web Moderno</h3>
+                        <p class="item-card-desc">Aprenda as melhores práticas para criar websites profissionais.</p>
+                        <div class="item-card-meta">Criado em: 29/10/2025 | Duração: 45min</div>
+                        <div class="item-card-actions">
+                            <button class="btn btn-primary btn-details">Ver Detalhes</button>
+                            <button class="btn btn-danger btn-remove">Remover</button>
+                        </div>
+                    </div>
+                    <div class="item-card" data-id="vid2">
+                        <h3 class="item-card-title">Documentário: Startups em Angola</h3>
+                        <p class="item-card-desc">História inspiradora de empreendedores angolanos de sucesso.</p>
+                        <div class="item-card-meta">Criado em: 25/10/2025 | Duração: 60min</div>
+                        <div class="item-card-actions">
+                            <button class="btn btn-primary btn-details">Ver Detalhes</button>
+                            <button class="btn btn-danger btn-remove">Remover</button>
+                        </div>
+                    </div>
+                    <div class="item-card" data-id="vid3">
+                        <h3 class="item-card-title">Entrevista: CEO da Tech Solutions</h3>
+                        <p class="item-card-desc">Conversa exclusiva sobre inovação e futuro da tecnologia.</p>
+                        <div class="item-card-meta">Criado em: 20/10/2025 | Duração: 30min</div>
+                        <div class="item-card-actions">
+                            <button class="btn btn-primary btn-details">Ver Detalhes</button>
+                            <button class="btn btn-danger btn-remove">Remover</button>
+                        </div>
+                    </div>
+                    <div class="item-card" data-id="vid4">
+                        <h3 class="item-card-title">Webinar: Marketing Digital 2025</h3>
+                        <p class="item-card-desc">Estratégias avançadas para crescer seu negócio online.</p>
+                        <div class="item-card-meta">Criado em: 15/10/2025 | Duração: 90min</div>
+                        <div class="item-card-actions">
+                            <button class="btn btn-primary btn-details">Ver Detalhes</button>
+                            <button class="btn btn-danger btn-remove">Remover</button>
+                        </div>
+                    </div>
+                    <div class="item-card" data-id="vid5">
+                        <h3 class="item-card-title">Making Of: Festival de Música</h3>
+                        <p class="item-card-desc">Bastidores do maior evento musical do ano em Angola.</p>
+                        <div class="item-card-meta">Criado em: 10/10/2025 | Duração: 25min</div>
+                        <div class="item-card-actions">
+                            <button class="btn btn-primary btn-details">Ver Detalhes</button>
+                            <button class="btn btn-danger btn-remove">Remover</button>
+                        </div>
+                    </div>
+                    <div class="item-card" data-id="vid6">
+                        <h3 class="item-card-title">Curso: Python para Iniciantes</h3>
+                        <p class="item-card-desc">Aprenda programação Python do zero de forma prática.</p>
+                        <div class="item-card-meta">Criado em: 05/10/2025 | Duração: 120min</div>
+                        <div class="item-card-actions">
+                            <button class="btn btn-primary btn-details">Ver Detalhes</button>
+                            <button class="btn btn-danger btn-remove">Remover</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PÁGINA: USUÁRIOS -->
+            <div id="page-usuarios" class="page-content">
+                <h2 class="page-title">Usuários</h2>
+                <div class="users-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Email</th>
+                                <th>Papel</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="usuarios-tbody">
+                            <tr data-user-id="user1">
+                                <td>João Silva</td>
+                                <td>joao.silva@melp.ao</td>
+                                <td><span class="user-role role-admin">Admin</span></td>
+                                <td><button class="btn btn-danger btn-delete-user">Eliminar</button></td>
+                            </tr>
+                            <tr data-user-id="user2">
+                                <td>Maria Santos</td>
+                                <td>maria.santos@melp.ao</td>
+                                <td><span class="user-role role-user">Usuário</span></td>
+                                <td><button class="btn btn-danger btn-delete-user">Eliminar</button></td>
+                            </tr>
+                            <tr data-user-id="user3">
+                                <td>Pedro Costa</td>
+                                <td>pedro.costa@melp.ao</td>
+                                <td><span class="user-role role-user">Usuário</span></td>
+                                <td><button class="btn btn-danger btn-delete-user">Eliminar</button></td>
+                            </tr>
+                            <tr data-user-id="user4">
+                                <td>Ana Rodrigues</td>
+                                <td>ana.rodrigues@melp.ao</td>
+                                <td><span class="user-role role-admin">Admin</span></td>
+                                <td><button class="btn btn-danger btn-delete-user">Eliminar</button></td>
+                            </tr>
+                            <tr data-user-id="user5">
+                                <td>Carlos Mendes</td>
+                                <td>carlos.mendes@melp.ao</td>
+                                <td><span class="user-role role-user">Usuário</span></td>
+                                <td><button class="btn btn-danger btn-delete-user">Eliminar</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- RODAPÉ -->
+            <footer class="footer">
+                <p>&copy; 2025 Melp-Digital. Todos os direitos reservados.</p>
+            </footer>
+        </main>
+    </div>
+
+    <!-- MODAL DE DETALHES -->
+    <div id="detailsModal" class="modal" role="dialog" aria-labelledby="modalTitle" aria-modal="true">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle" class="modal-title"></h2>
+                <button class="modal-close" aria-label="Fechar modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-section">
+                    <div class="modal-section-title">Descrição:</div>
+                    <div class="modal-section-content" id="modalDescription"></div>
+                </div>
+                <div class="modal-section">
+                    <div class="modal-section-title">Metadados:</div>
+                    <div class="modal-section-content" id="modalMeta"></div>
+                </div>
+                <div class="modal-section">
+                    <div class="modal-section-title">ID do Item:</div>
+                    <div class="modal-section-content" id="modalId"></div>
+                </div>
+            </div>
+            <button class="btn btn-secondary modal-close">Fechar</button>
+        </div>
+    </div>
+
+    <!-- SPINNER DE CARREGAMENTO -->
+    <div class="spinner" id="loadingSpinner">
+        <div class="spinner-circle"></div>
+    </div>
+
+    <!-- ========================================
+         JAVASCRIPT - SEM OBJETOS OU JSON
+         INTEGRAÇÃO FUTURA: 
+         - Substituir dados simulados por chamadas fetch() aos endpoints
+         - Endpoints sugeridos:
+           GET /api/produtos - listar produtos
+           GET /api/servicos - listar serviços
+           GET /api/parcerias - listar parcerias
+           GET /api/musica - listar músicas
+           GET /api/artigos - listar artigos
+           GET /api/noticias - listar notícias
+           GET /api/videos - listar vídeos
+           GET /api/usuarios - listar usuários
+           DELETE /api/{categoria}/{id} - remover item
+           DELETE /api/usuarios/{id} - remover usuário
+    ======================================== -->
+    <script>
+        /* Constante para debug (desativar em produção) */
+        var DEBUG = false;
+
+        /* ========================================
+           ELEMENTOS DO DOM
+        ======================================== */
+        var sidebar = document.getElementById('sidebar');
+        var searchInput = document.getElementById('searchInput');
+        var detailsModal = document.getElementById('detailsModal');
+        var loadingSpinner = document.getElementById('loadingSpinner');
+
+        /* ========================================
+           NAVEGAÇÃO ENTRE PÁGINAS
+        ======================================== */
+        function navigateToPage(pageName) {
+            /* Esconder todas as páginas */
+            var allPages = document.querySelectorAll('.page-content');
+            for (var i = 0; i < allPages.length; i++) {
+                allPages[i].classList.remove('active');
+            }
+
+            /* Mostrar página selecionada */
+            var targetPage = document.getElementById('page-' + pageName);
+            if (targetPage) {
+                targetPage.classList.add('active');
+            }
+
+            /* Atualizar menu ativo */
+            var menuLinks = document.querySelectorAll('.sidebar-menu a');
+            for (var j = 0; j < menuLinks.length; j++) {
+                menuLinks[j].classList.remove('active');
+            }
+
+            var activeLink = document.querySelector('.sidebar-menu a[data-page="' + pageName + '"]');
+            if (activeLink) {
+                activeLink.classList.add('active');
+            }
+
+            /* Limpar pesquisa */
+            if (searchInput) {
+                searchInput.value = '';
+            }
+            resetSearch();
+
+            /* Atualizar estatísticas do dashboard */
+            if (pageName === 'dashboard') {
+                updateDashboardStats();
+            }
+
+            /* Scroll para o topo */
+            window.scrollTo(0, 0);
+        }
+
+        /* ========================================
+           LISTENERS DE NAVEGAÇÃO
+        ======================================== */
+        if (sidebar) {
+            var sidebarLinks = sidebar.querySelectorAll('.sidebar-menu a');
+            for (var k = 0; k < sidebarLinks.length; k++) {
+                sidebarLinks[k].addEventListener('click', function(e) {
+                    e.preventDefault();
+                    var page = this.getAttribute('data-page');
+                    
+                    if (page === 'logout') {
+                        if (confirm('Tem certeza que deseja sair?')) {
+                            showAlert('Você foi desconectado com sucesso!', 'info');
+                            setTimeout(function() {
+                                window.location.reload();
+                            }, 1500);
+                        }
+                        return;
+                    }
+                    
+                    navigateToPage(page);
+                });
+            }
+        }
+
+        /* ========================================
+           ATUALIZAR ESTATÍSTICAS DO DASHBOARD
+        ======================================== */
+        function updateDashboardStats() {
+            var categories = ['produtos', 'servicos', 'parcerias', 'musica', 'artigos', 'noticias', 'videos'];
+            
+            for (var i = 0; i < categories.length; i++) {
+                var cat = categories[i];
+                var grid = document.getElementById(cat + '-grid');
+                var statEl = document.getElementById('stat-' + cat);
+                
+                if (grid && statEl) {
+                    var cards = grid.querySelectorAll('.item-card');
+                    statEl.textContent = cards.length;
+                }
+            }
+
+            /* Contar usuários */
+            var usersTbody = document.getElementById('usuarios-tbody');
+            var usersStatEl = document.getElementById('stat-usuarios');
+            if (usersTbody && usersStatEl) {
+                var userRows = usersTbody.querySelectorAll('tr');
+                usersStatEl.textContent = userRows.length;
+            }
+        }
+
+        /* ========================================
+           CLICKS NOS CARDS DE ESTATÍSTICAS
+        ======================================== */
+        var statCards = document.querySelectorAll('.stat-card');
+        for (var m = 0; m < statCards.length; m++) {
+            statCards[m].addEventListener('click', function() {
+                var category = this.getAttribute('data-category');
+                if (category) {
+                    navigateToPage(category);
+                }
+            });
+        }
+
+        /* ========================================
+           MODAL - ABRIR E FECHAR
+        ======================================== */
+        function openModal(title, description, meta, itemId) {
+            var modalTitle = document.getElementById('modalTitle');
+            var modalDescription = document.getElementById('modalDescription');
+            var modalMeta = document.getElementById('modalMeta');
+            var modalId = document.getElementById('modalId');
+
+            if (modalTitle) modalTitle.textContent = title;
+            if (modalDescription) modalDescription.textContent = description;
+            if (modalMeta) modalMeta.textContent = meta;
+            if (modalId) modalId.textContent = itemId;
+
+            if (detailsModal) {
+                detailsModal.classList.add('active');
+                /* Foco no modal */
+                var closeBtn = detailsModal.querySelector('.modal-close');
+                if (closeBtn) closeBtn.focus();
+            }
+        }
+
+        function closeModal() {
+            if (detailsModal) {
+                detailsModal.classList.remove('active');
+            }
+        }
+
+        /* Listeners de fechar modal */
+        if (detailsModal) {
+            var closeButtons = detailsModal.querySelectorAll('.modal-close');
+            for (var n = 0; n < closeButtons.length; n++) {
+                closeButtons[n].addEventListener('click', closeModal);
+            }
+
+            /* Fechar ao clicar fora do modal */
+            detailsModal.addEventListener('click', function(e) {
+                if (e.target === detailsModal) {
+                    closeModal();
+                }
+            });
+        }
+
+        /* ========================================
+           BOTÕES "VER DETALHES"
+        ======================================== */
+        function setupDetailsButtons() {
+            var detailButtons = document.querySelectorAll('.btn-details');
+            for (var i = 0; i < detailButtons.length; i++) {
+                detailButtons[i].addEventListener('click', function(e) {
+                    e.preventDefault();
+                    var card = this.closest('.item-card');
+                    if (card) {
+                        var title = '';
+                        var description = '';
+                        var meta = '';
+                        var itemId = card.getAttribute('data-id') || 'N/A';
+
+                        var titleEl = card.querySelector('.item-card-title');
+                        var descEl = card.querySelector('.item-card-desc');
+                        var metaEl = card.querySelector('.item-card-meta');
+
+                        if (titleEl) title = titleEl.textContent;
+                        if (descEl) description = descEl.textContent;
+                        if (metaEl) meta = metaEl.textContent;
+
+                        openModal(title, description, meta, itemId);
+                    }
+                });
+            }
+        }
+
+        /* ========================================
+           BOTÕES "REMOVER"
+        ======================================== */
+        function setupRemoveButtons() {
+            var removeButtons = document.querySelectorAll('.btn-remove');
+            for (var i = 0; i < removeButtons.length; i++) {
+                removeButtons[i].addEventListener('click', function(e) {
+                    e.preventDefault();
+                    var card = this.closest('.item-card');
+                    if (!card) return;
+
+                    var titleEl = card.querySelector('.item-card-title');
+                    var itemTitle = titleEl ? titleEl.textContent : 'este item';
+                    var itemId = card.getAttribute('data-id');
+
+                    if (confirm('Tem certeza que deseja remover "' + itemTitle + '"?')) {
+                        showLoading();
+                        
+                        /* Simular delay de requisição */
+                        setTimeout(function() {
+                            hideLoading();
+                            
+                            /* INTEGRAÇÃO FUTURA: Fazer DELETE request aqui
+                               fetch('/api/categoria/' + itemId, { method: 'DELETE' })
+                            */
+                            
+                            card.remove();
+                            showAlert('Item removido com sucesso!', 'success');
+                            updateDashboardStats();
+                        }, 500);
+                    }
+                });
+            }
+        }
+
+        /* ========================================
+           BOTÕES "ELIMINAR USUÁRIO"
+        ======================================== */
+        function setupDeleteUserButtons() {
+            var deleteUserBtns = document.querySelectorAll('.btn-delete-user');
+            for (var i = 0; i < deleteUserBtns.length; i++) {
+                deleteUserBtns[i].addEventListener('click', function(e) {
+                    e.preventDefault();
+                    var row = this.closest('tr');
+                    if (!row) return;
+
+                    var nameCell = row.querySelector('td:first-child');
+                    var userName = nameCell ? nameCell.textContent : 'este usuário';
+                    var userId = row.getAttribute('data-user-id');
+
+                    if (confirm('Tem certeza que deseja eliminar o usuário "' + userName + '"?')) {
+                        showLoading();
+                        
+                        /* Simular delay de requisição */
+                        setTimeout(function() {
+                            hideLoading();
+                            
+                            /* INTEGRAÇÃO FUTURA: Fazer DELETE request aqui
+                               fetch('/api/usuarios/' + userId, { method: 'DELETE' })
+                            */
+                            
+                            row.remove();
+                            showAlert('Usuário eliminado com sucesso!', 'success');
+                            updateDashboardStats();
+                        }, 500);
+                    }
+                });
+            }
+        }
+
+        /* ========================================
+           SISTEMA DE ALERTAS
+        ======================================== */
+        function showAlert(message, type) {
+            var alert = document.createElement('div');
+            alert.className = 'alert alert-' + type;
+            alert.textContent = message;
+            document.body.appendChild(alert);
+
+            setTimeout(function() {
+                alert.style.opacity = '0';
+                alert.style.transition = 'opacity 0.3s ease';
+                setTimeout(function() {
+                    if (alert.parentNode) {
+                        alert.parentNode.removeChild(alert);
+                    }
+                }, 300);
+            }, 3000);
+        }
+
+        /* ========================================
+           LOADING SPINNER
+        ======================================== */
+        function showLoading() {
+            if (loadingSpinner) {
+                loadingSpinner.classList.add('active');
+            }
+        }
+
+        function hideLoading() {
+            if (loadingSpinner) {
+                loadingSpinner.classList.remove('active');
+            }
+        }
+
+        /* ========================================
+           PESQUISA GLOBAL
+        ======================================== */
+        function performSearch(query) {
+            var lowerQuery = query.toLowerCase().trim();
+            
+            if (lowerQuery === '') {
+                resetSearch();
+                return;
+            }
+
+            /* Pesquisar em todas as categorias */
+            var allCards = document.querySelectorAll('.item-card');
+            var foundCount = 0;
+
+            for (var i = 0; i < allCards.length; i++) {
+                var card = allCards[i];
+                var titleEl = card.querySelector('.item-card-title');
+                var descEl = card.querySelector('.item-card-desc');
+                
+                var titleText = titleEl ? titleEl.textContent.toLowerCase() : '';
+                var descText = descEl ? descEl.textContent.toLowerCase() : '';
+                
+                if (titleText.indexOf(lowerQuery) !== -1 || descText.indexOf(lowerQuery) !== -1) {
+                    card.style.display = 'block';
+                    foundCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            }
+
+            if (DEBUG) {
+                console.log('Pesquisa: ' + query + ' - Encontrados: ' + foundCount);
+            }
+        }
+
+        function resetSearch() {
+            var allCards = document.querySelectorAll('.item-card');
+            for (var i = 0; i < allCards.length; i++) {
+                allCards[i].style.display = 'block';
+            }
+        }
+
+        /* Listener de pesquisa */
+        if (searchInput) {
+            searchInput.addEventListener('input', function() {
+                var query = this.value;
+                performSearch(query);
+            });
+        }
+
+        /* ========================================
+           INICIALIZAÇÃO
+        ======================================== */
+        function init() {
+            try {
+                /* Configurar todos os botões */
+                setupDetailsButtons();
+                setupRemoveButtons();
+                setupDeleteUserButtons();
+                
+                /* Atualizar estatísticas iniciais */
+                updateDashboardStats();
+                
+                /* Verificar se há erros de elementos não encontrados */
+                if (!sidebar) {
+                    if (DEBUG) console.warn('Sidebar não encontrada');
+                }
+                if (!searchInput) {
+                    if (DEBUG) console.warn('Campo de pesquisa não encontrado');
+                }
+                if (!detailsModal) {
+                    if (DEBUG) console.warn('Modal não encontrado');
+                }
+                
+                if (DEBUG) {
+                    console.log('Painel Administrador Melp-Digital inicializado com sucesso!');
+                }
+            } catch (error) {
+                if (DEBUG) {
+                    console.error('Erro na inicialização:', error);
+                }
+            }
+        }
+
+        /* ========================================
+           TRATAMENTO DE ERROS GLOBAIS
+        ======================================== */
+        window.addEventListener('error', function(e) {
+            if (DEBUG) {
+                console.error('Erro capturado:', e.message);
+            }
+            /* Em produção, enviar erro para servidor de logs */
+        });
+
+        /* ========================================
+           EXECUTAR QUANDO DOM ESTIVER PRONTO
+        ======================================== */
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
+        }
+
+        /* ========================================
+           TECLAS DE ATALHO
+        ======================================== */
+        document.addEventListener('keydown', function(e) {
+            /* ESC para fechar modal */
+            if (e.key === 'Escape' || e.keyCode === 27) {
+                if (detailsModal && detailsModal.classList.contains('active')) {
+                    closeModal();
+                }
+            }
+            
+            /* Ctrl/Cmd + K para focar na pesquisa */
+            if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+                e.preventDefault();
+                if (searchInput) {
+                    searchInput.focus();
+                }
+            }
+        });
+
+        /* ========================================
+           RESPONSIVIDADE - TOGGLE SIDEBAR MOBILE
+        ======================================== */
+        var menuToggle = document.createElement('button');
+        menuToggle.className = 'menu-toggle';
+        menuToggle.innerHTML = '☰';
+        menuToggle.style.cssText = 'display:none;position:fixed;top:20px;left:20px;z-index:1001;background:var(--cor1);color:white;border:none;padding:10px 15px;border-radius:8px;cursor:pointer;font-size:20px;';
+        
+        document.body.appendChild(menuToggle);
+
+        menuToggle.addEventListener('click', function() {
+            if (sidebar) {
+                sidebar.classList.toggle('mobile-open');
+            }
+        });
+
+        /* Mostrar botão menu em telas pequenas */
+        function checkMobile() {
+            if (window.innerWidth <= 768) {
+                menuToggle.style.display = 'block';
+            } else {
+                menuToggle.style.display = 'none';
+                if (sidebar) {
+                    sidebar.classList.remove('mobile-open');
+                }
+            }
+        }
+
+        window.addEventListener('resize', checkMobile);
+        checkMobile();
+
+        /* ========================================
+           COMENTÁRIOS PARA INTEGRAÇÃO BACKEND
+        ======================================== */
+        /*
+         * INTEGRAÇÃO COM BACKEND:
+         * 
+         * 1. LISTAR ITENS:
+         *    - Substituir HTML estático por chamadas fetch() aos endpoints
+         *    - Exemplo: fetch('/api/produtos').then(res => res.json()).then(data => renderCards(data))
+         * 
+         * 2. REMOVER ITENS:
+         *    - Na função de remover, fazer: fetch('/api/categoria/' + itemId, { method: 'DELETE' })
+         *    - Tratar resposta e remover card apenas se sucesso
+         * 
+         * 3. AUTENTICAÇÃO:
+         *    - Adicionar token JWT nos headers: { 'Authorization': 'Bearer ' + token }
+         *    - Verificar autenticação ao carregar página
+         * 
+         * 4. PESQUISA:
+         *    - Pode ser client-side (como implementado) ou server-side
+         *    - Para server-side: fetch('/api/search?q=' + query)
+         * 
+         * 5. PAGINAÇÃO:
+         *    - Adicionar parâmetros: fetch('/api/produtos?page=1&limit=6')
+         *    - Implementar botões de navegação entre páginas
+         * 
+         * 6. UPLOAD DE ARQUIVOS:
+         *    - Adicionar FormData para envio de imagens/arquivos
+         *    - Endpoint: POST /api/upload
+         * 
+         * 7. VALIDAÇÃO:
+         *    - Adicionar validação de formulários no frontend
+         *    - Backend deve sempre validar dados recebidos
+         * 
+         * 8. WEBSOCKETS (OPCIONAL):
+         *    - Para atualizações em tempo real
+         *    - Notificar quando novo item é adicionado por outro admin
+         */
+    </script>
+</body>
+</html>
